@@ -108,15 +108,23 @@ class AVL {
         if(!nodo) cout << "libro_no_encontrado" << endl;
         else if(id < nodo->id) toggleAux(nodo->izq, id);
         else if(id > nodo->id) toggleAux(nodo->der, id);
-        else nodo->estado == 'D' ? nodo->estado == 'H' : nodo->estado == 'D';
-        
+        else{
+            if(nodo->estado == 'D'){
+                nodo->estado = 'H';
+                habilitados++;
+            }
+            else{
+                nodo->estado = 'D';
+                habilitados--;
+            }
+        }    
     }
 
     void findAux(NodoAVL* nodo, int id){
         if(!nodo) cout << "libro_no_encontrado" << endl;
         else if(id < nodo->id) findAux(nodo->izq, id);
         else if(id > nodo->id) findAux(nodo->der, id);
-        else cout << nodo->titulo << nodo->estado << endl;
+        else cout << nodo->titulo << " " << nodo->estado << endl;
     }
  
 	public:
@@ -133,6 +141,6 @@ class AVL {
     }
 
     void count(){
-        cout << total << habilitados << total-habilitados << endl;
+        cout << total << " " << habilitados << " " << total-habilitados << endl;
     }
 };

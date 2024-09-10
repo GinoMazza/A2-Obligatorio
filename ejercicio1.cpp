@@ -2,7 +2,7 @@
 #include <string>
 #include <iostream>
 #include <limits>
-#include <avl.cpp>
+#include "avl.cpp"
 
 using namespace std;
 
@@ -15,18 +15,18 @@ int main(){
         int id;
         string titulo;
         cin >> op;
-        if(op._Equal("ADD")){
+        if(op == "ADD"){
             cin >> id >> titulo;
             arbol->add(id, titulo); 
         } 
-        else if(op._Equal("FIND")){
+        else if(op == "FIND"){
             cin >> id;
             arbol->find(id);
         }
-        else if(op._Equal("TOGGLE")){
+        else if(op == "TOGGLE"){
             cin >> id;
             arbol->toggle(id);
         }
-        else if(op._Equal("COUNT")) arbol->count();
+        else if(op == "COUNT") arbol->count();
     }
 }

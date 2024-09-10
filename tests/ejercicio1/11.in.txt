@@ -1,0 +1,12 @@
+11
+ADD 15 Don_Quijote
+ADD 23 La_Casa_de_los_Espiritus
+FIND 15
+FIND 88
+TOGGLE 15
+FIND 15
+ADD 25 Cien_Años_de_Soledad
+COUNT
+TOGGLE 99
+TOGGLE 23
+COUNT
