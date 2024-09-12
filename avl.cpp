@@ -14,7 +14,7 @@ class AVL {
 	};
 
 	NodoAVL* raiz;
-    int total;
+    int totales;
     int habilitados;
 
     //Funcion que retorna el mayor de dos numeros
@@ -54,9 +54,17 @@ class AVL {
 		return A;
 	}
 
+	void destruir(NodoAVL* nodo){
+		if(!nodo) return;
+		destruir(nodo->izq);
+		destruir(nodo->der);
+		delete nodo;
+		nodo = NULL;
+	}
+
 	NodoAVL* insertarAux(NodoAVL* nodo, int id, string titulo) {
 		if(!nodo){ 
-            total++;
+            totales++;
             habilitados++;
             return new NodoAVL(id, titulo);
         }
@@ -128,6 +136,18 @@ class AVL {
     }
  
 	public:
+	AVL(){
+		raiz = NULL;
+		totales = 0;
+		habilitados = 0;
+	}
+
+	~AVL(){
+		destruir(raiz);
+		totales = 0;
+		habilitados = 0;
+	}
+
 	void add(int id, string titulo) {
 		raiz = insertarAux(raiz, id, titulo);
 	}
@@ -141,6 +161,6 @@ class AVL {
     }
 
     void count(){
-        cout << total << " " << habilitados << " " << total-habilitados << endl;
+        cout << totales << " " << habilitados << " " << totales-habilitados << endl;
     }
 };
