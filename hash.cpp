@@ -12,7 +12,6 @@ class THash{
 	};
 
     nodoHash* tabla;
-    bool* borrados;
     int tam;
     int totales;
     int habilitados;
@@ -25,15 +24,13 @@ class THash{
         return 1 + (id % (tam - 1));
     }
 
-    nodoHash* rehash(nodoHash* nodo){
-
+    nodoHash* rehash(){
+        //Implementar
     }
 
-    void destruir(nodoHash* nodo){
-        delete[] nodo;
-        delete[] borrados;
-        nodo = NULL;
-        borrados = NULL;
+    void destruir(){
+        delete[] tabla;
+        tabla = NULL;
     }
 
     int proximoVacio(int bucket, int id) {
@@ -47,59 +44,60 @@ class THash{
     }
 
 
-    void insertarAux(nodoHash* nodo, int id, string titulo, int bucket){ 
-        if(nodo[bucket].estado == 'V'){
+    void insertarAux(int id, string titulo, int bucket){ 
+        if(tabla[bucket].estado == 'V'){
             nodoHash nuevo;
             nuevo.id = id;
             nuevo.titulo = titulo;
             nuevo.estado = 'H';
-            nodo[bucket] = nuevo;
+            tabla[bucket] = nuevo;
             totales++;
             habilitados++;
         }
-        else if(nodo[bucket].id == id){
-            nodo[bucket].titulo = titulo;
-            if(nodo[bucket].estado = 'D'){
-                nodo[bucket].estado = 'H';
+        else if(tabla[bucket].id == id){
+            tabla[bucket].titulo = titulo;
+            if(tabla[bucket].estado = 'D'){
+                tabla[bucket].estado = 'H';
                 habilitados++;
             }
         }
-        else if(nodo[bucket].id != id){
-            int nuevoBucket = proximoVacio(bucket);
-            insertarAux(nodo, id, titulo, nuevoBucket);
+        else if(tabla[bucket].id != id){
+            int nuevoBucket = proximoVacio(bucket, id);
+            insertarAux(id, titulo, nuevoBucket);
         }
     }
 
-    void toggleAux(nodoHash* nodo, int id){
-        if(!nodo) cout << "libro_no_encontrado" << endl;
-        else{
-            if(nodo->estado == 'D'){
-                nodo->estado = 'H';
+    void toggleAux(int id, int bucket){
+        if(tabla[bucket].estado == 'V') cout << "libro_no_encontrado" << endl;
+        else if(tabla[bucket].id == id){
+            if(tabla[bucket].estado == 'D'){
+                tabla[bucket].estado = 'H';
                 habilitados++;
             }
             else{
-                nodo->estado = 'D';
+                tabla[bucket].estado = 'D';
                 habilitados--;
             }
-        }    
+        }
+        else if(tabla[bucket].id != id) toggleAux(id, proximoVacio(bucket, id));  
     }
 
-    void findAux(nodoHash* nodo, int id){
-        if(!nodo) cout << "libro_no_encontrado" << endl;
-        else cout << nodo->titulo << " " << nodo->estado << endl;
+    void findAux(int id, int bucket){
+        if(tabla[bucket].estado == 'V') cout << "libro_no_encontrado" << endl;
+        else if(tabla[bucket].id == id) cout << tabla[bucket].titulo << " " << tabla[bucket].estado << endl;
+        else if(tabla[bucket].id != id) findAux(id, proximoVacio(bucket, id));
     }
 
     public:
     THash(int largo){
         tabla = new nodoHash[tam]();
-        borrados = new bool[tam]();
         tam = largo;
 		totales = 0;
 		habilitados = 0;
     }    
 
     ~THash(){
-		destruir(tabla);
+		destruir();
         tam = 0;
 		totales = 0;
 		habilitados = 0;
@@ -107,17 +105,19 @@ class THash{
 
     void add(int id, string titulo) {
         float fc = totales / (float)tam;
-        if(fc > 0,7) rehash(tabla);
+        if(fc > 0,7) rehash();
         int bucket = fHash1(id);
-        insertarAux(tabla, id, titulo, bucket);
+        insertarAux(id, titulo, bucket);
 	}
 
     void find(int id){
-        
+        int bucket = fHash1(id);
+        findAux(id, bucket);
     }
 
     void toggle(int id){
-        
+        int bucket = fHash1(id);
+        toggleAux(id, bucket);
     }
 
     void count(){
