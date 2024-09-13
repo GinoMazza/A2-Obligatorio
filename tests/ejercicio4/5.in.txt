@@ -1,0 +1,9 @@
+5
+7
+I 1 10 false ORTastySignture_ORTFlurryDeORTeos
+E 1
+I 2 5 false ORTastySignture
+I 3 10 false CajitaEstudiosa_EggORTMuffin_ORTFlurryDeORTeos_ORTNuggets_EggORTMuffin
+E 2
+I 4 5 true ORTastySignture_BigORT_BigORT_CajitaEstudiosa
+I 5 0 true EggORTMuffin

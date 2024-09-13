@@ -1,0 +1,18 @@
+10
+16
+I 1 20 false ORTastySignture_BigORT_CajitaEstudiosa_EggORTMuffin
+E 1
+I 2 0 false ORTastySignture
+I 3 10 false EggORTMuffin_BigORT_EggORTMuffin_ORTFlurryDeORTeos_ORTFlurryDeORTeos_ORTFlurryDeORTeos
+I 4 20 false ORTastySignture_ORTastySignture_ORTFlurryDeORTeos_BigORT_ORTNuggets
+I 5 10 false ORTFlurryDeORTeos_BigORT_BigORT_EggORTMuffin_ORTFlurryDeORTeos_CajitaEstudiosa
+I 6 10 false BigORT_CajitaEstudiosa
+I 7 0 false EggORTMuffin_ORTFlurryDeORTeos_ORTastySignture_CajitaEstudiosa
+I 8 10 false ORTastySignture
+I 9 30 false ORTFlurryDeORTeos_ORTFlurryDeORTeos
+I 10 20 false BigORT_ORTFlurryDeORTeos_ORTFlurryDeORTeos
+C 7
+E 9
+E 6
+C 2
+E 10
