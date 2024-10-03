@@ -1,0 +1,43 @@
+Ciudad inicial: Tokio
+Tokio -> Nueva_York -> Colonia -> Canelones -> Quito -> Mision: Proteger_sede_FMI - Quito - Tiempo de viaje: 41
+Quito -> Beijing -> Roma -> Durazno -> Paysandu -> Mision: Desactivar_servidor - Paysandu - Tiempo de viaje: 79
+Paysandu -> Durazno -> Paris -> Londres -> Salto -> Mision: Proteger_emisarios - Salto - Tiempo de viaje: 123
+Salto -> Dubai -> Colonia -> Nueva_York -> Tokio -> Ciudad_de_Mexico -> Mision: Recuperar_control_de_sistema - Ciudad_de_Mexico - Tiempo de viaje: 71
+Ciudad_de_Mexico -> Tokio -> Nueva_York -> Colonia -> Dubai -> Santiago_de_Chile -> Bogota -> Abu_Dhabi -> Mision: Identificar_agente_hostil - Abu_Dhabi - Tiempo de viaje: 82
+Abu_Dhabi -> Bogota -> Santiago_de_Chile -> Mision: Impedir_sabotaje_inminente - Santiago_de_Chile - Tiempo de viaje: 24
+Santiago_de_Chile -> Dubai -> Salto -> Londres -> Mision: Neutralizar_amenaza - Londres - Tiempo de viaje: 80
+Londres -> Barcelona -> Rivera -> Mision: Infiltrar_servidor_secreto - Rivera - Tiempo de viaje: 99
+Rivera -> Melbourne -> Los_Angeles -> Paris -> Copenhague -> Mision: Infiltrarse_base_enemiga - Copenhague - Tiempo de viaje: 98
+Copenhague -> Helsinki -> Varsovia -> Vancouver -> Colonia -> Nueva_York -> Mision: Recolectar_evidencias - Nueva_York - Tiempo de viaje: 70
+Nueva_York -> Tokio -> Ciudad_de_Mexico -> Rivera -> Mision: Interceptar_transmision_secreta - Rivera - Tiempo de viaje: 83
+Rivera -> Melbourne -> Bangkok -> Mision: Infiltrarse_red_financiera - Bangkok - Tiempo de viaje: 100
+Bangkok -> Beijing -> Varsovia -> Mision: Rastrear_satelite_pirata - Varsovia - Tiempo de viaje: 27
+Varsovia -> Helsinki -> Copenhague -> Paris -> Durazno -> Paysandu -> Mision: Recuperar_datos_sensibles - Paysandu - Tiempo de viaje: 70
+Paysandu -> Durazno -> Roma -> Los_Angeles -> Mision: Infiltrarse_red_financiera - Los_Angeles - Tiempo de viaje: 66
+Los_Angeles -> Melbourne -> Santiago_de_Chile -> Bogota -> Mision: Neutralizar_vehiculo - Bogota - Tiempo de viaje: 29
+Bogota -> Santiago_de_Chile -> Dubai -> Salto -> Mision: Interceptar_comunicaciones - Salto - Tiempo de viaje: 58
+Salto -> Punta_del_Este -> El_Cairo -> Atenas -> Mision: Rastrear_satelite_pirata - Atenas - Tiempo de viaje: 97
+Atenas -> Beijing -> Varsovia -> Estocolmo -> Mision: Detener_fuga_de_informacion - Estocolmo - Tiempo de viaje: 47
+Estocolmo -> Varsovia -> Buenos_Aires -> Mision: Recuperar_acceso_sistema_critico - Buenos_Aires - Tiempo de viaje: 67
+Buenos_Aires -> Varsovia -> Melbourne -> Los_Angeles -> Mision: Saboteo_interno - Los_Angeles - Tiempo de viaje: 96
+Los_Angeles -> Hong_Kong -> Mision: Anular_defensas_enemigas - Hong_Kong - Tiempo de viaje: 35
+Hong_Kong -> Brasilia -> Estocolmo -> Bruselas -> Barcelona -> Mision: Recolectar_evidencias - Barcelona - Tiempo de viaje: 79
+Barcelona -> Mision: Descubrir_identidad_de_infiltrados - Barcelona - Tiempo de viaje: 0
+Barcelona -> Canelones -> Colonia -> Nueva_York -> Tokio -> Ciudad_de_Mexico -> Mision: Anular_defensas_enemigas - Ciudad_de_Mexico - Tiempo de viaje: 45
+Ciudad_de_Mexico -> Tokio -> Nueva_York -> Colonia -> Dubai -> Santiago_de_Chile -> Mision: Desactivar_servidor - Santiago_de_Chile - Tiempo de viaje: 58
+Santiago_de_Chile -> Melbourne -> Toronto -> Brasilia -> Mision: Desactivar_servidor - Brasilia - Tiempo de viaje: 79
+Brasilia -> Estocolmo -> Mision: Infiltrarse_red_financiera - Estocolmo - Tiempo de viaje: 12
+Estocolmo -> Varsovia -> Melbourne -> Los_Angeles -> Mision: Asegurar_artefacto - Los_Angeles - Tiempo de viaje: 51
+Los_Angeles -> Melbourne -> Sidney -> Mision: Infiltrarse_base_enemiga - Sidney - Tiempo de viaje: 38
+Sidney -> Amsterdam -> Helsinki -> Johannesburgo -> Mision: Obtener_coordenadas_clave - Johannesburgo - Tiempo de viaje: 80
+Johannesburgo -> Barcelona -> Canelones -> Mision: Detener_ataque_cibernetico - Canelones - Tiempo de viaje: 49
+Canelones -> Quito -> Beijing -> Varsovia -> Helsinki -> Copenhague -> Mision: Interceptar_comunicaciones - Copenhague - Tiempo de viaje: 59
+Copenhague -> Helsinki -> Amsterdam -> Sidney -> Mision: Interceptar_comunicaciones - Sidney - Tiempo de viaje: 56
+Sidney -> El_Cairo -> San_Pablo -> Barcelona -> Canelones -> Mision: Proteger_informante - Canelones - Tiempo de viaje: 79
+Canelones -> Colonia -> Nueva_York -> Tokio -> Ciudad_de_Mexico -> Mision: Obtener_coordenadas_clave - Ciudad_de_Mexico - Tiempo de viaje: 33
+Ciudad_de_Mexico -> Tokio -> Nueva_York -> Colonia -> Dubai -> Salto -> Punta_del_Este -> Mision: Impedir_sabotaje_inminente - Punta_del_Este - Tiempo de viaje: 94
+Punta_del_Este -> Salto -> Londres -> Brasilia -> Caracas -> Mision: Infiltrarse_grupo - Caracas - Tiempo de viaje: 108
+Caracas -> Brasilia -> Estocolmo -> Varsovia -> Helsinki -> Copenhague -> Paris -> Durazno -> Mision: Rastrear_satelite_pirata - Durazno - Tiempo de viaje: 103
+Durazno -> Paysandu -> Sidney -> El_Cairo -> Mision: Desactivar_la_Entidad - El_Cairo - Tiempo de viaje: 93
+Misiones ejecutadas con exito.
+Tiempo total de viaje: 2658

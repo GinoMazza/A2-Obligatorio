@@ -18,5 +18,7 @@ int main(){
         heap->insertar(id, precio);
     }
     cin >> K;
+    //heap->eliminar();
     heap->imprimirK(K);
+   
 }

@@ -1,0 +1,23 @@
+Ciudad inicial: Vancouver
+Vancouver -> Colonia -> Toronto -> Melbourne -> Berlin -> Beijing -> Mision: Establecer_punto_seguro - Beijing - Tiempo de viaje: 81
+Beijing -> Berlin -> Melbourne -> Mision: Asegurar_artefacto - Melbourne - Tiempo de viaje: 26
+Melbourne -> Caracas -> Mision: Acceder_a_sistemas_seguridad - Caracas - Tiempo de viaje: 13
+Caracas -> Melbourne -> Sidney -> Paysandu -> Bruselas -> Mision: Detener_ataque_cibernetico - Bruselas - Tiempo de viaje: 84
+Bruselas -> Paysandu -> Maldonado -> Toronto -> Colonia -> Vancouver -> Mision: Identificar_objetivo_secundario - Vancouver - Tiempo de viaje: 92
+Vancouver -> Helsinki -> Varsovia -> Mision: Asegurar_artefacto - Varsovia - Tiempo de viaje: 51
+Varsovia -> Helsinki -> Caracas -> Salto -> Bogota -> Mision: Anular_defensas_enemigas - Bogota - Tiempo de viaje: 63
+Bogota -> Salto -> Madrid -> Quito -> Paris -> Roma -> Mision: Recuperar_acceso_sistema_critico - Roma - Tiempo de viaje: 120
+Roma -> Paris -> Quito -> Madrid -> Mision: Identificar_objetivo_secundario - Madrid - Tiempo de viaje: 75
+Madrid -> Quito -> Paris -> Mision: Localizar_articulo_roto - Paris - Tiempo de viaje: 31
+Paris -> Quito -> Lima -> Durazno -> San_Pablo -> Mision: Proteger_testigo_vip - San_Pablo - Tiempo de viaje: 51
+San_Pablo -> Seul -> Amsterdam -> Berlin -> Hong_Kong -> Mision: Extraer_codigo_fuente - Hong_Kong - Tiempo de viaje: 31
+Hong_Kong -> Berlin -> Mision: Infiltrarse_grupo - Berlin - Tiempo de viaje: 11
+Berlin -> Amsterdam -> Seul -> San_Pablo -> El_Cairo -> Mision: Proteger_testigo_vip - El_Cairo - Tiempo de viaje: 76
+El_Cairo -> Quito -> Mision: Interceptar_comunicaciones - Quito - Tiempo de viaje: 40
+Quito -> Paris -> Copenhague -> Ciudad_del_Cabo -> Montevideo -> Mision: Recuperar_dispositivo - Montevideo - Tiempo de viaje: 92
+Montevideo -> Amsterdam -> Berlin -> Los_Angeles -> Ciudad_de_Mexico -> Mision: Desactivar_artefacto - Ciudad_de_Mexico - Tiempo de viaje: 134
+Ciudad_de_Mexico -> Lima -> Caracas -> Helsinki -> Mision: Identificar_objetivo_secundario - Helsinki - Tiempo de viaje: 111
+Helsinki -> Caracas -> Estocolmo -> Montevideo -> Mision: Proteger_emisarios - Montevideo - Tiempo de viaje: 108
+Montevideo -> Estocolmo -> Caracas -> Salto -> Punta_del_Este -> Mision: Desactivar_la_Entidad - Punta_del_Este - Tiempo de viaje: 126
+Misiones ejecutadas con exito.
+Tiempo total de viaje: 1416

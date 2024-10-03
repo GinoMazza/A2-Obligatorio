@@ -13,7 +13,7 @@ class MinHeap{
     };
 
     nodoHeap** vec;
-    bool* aux;
+    bool* impresos;
     int capacidad;
     int primeroLibre;
 
@@ -30,15 +30,11 @@ class MinHeap{
     }
 
     int hijoIzq(int pos){
-        return pos + 1;
+        return pos * 2;
     }
 
     int hijoDer(int pos){
-        return pos + 2;
-    }
-
-    int posMenorPrecio(int a, int b){
-        return a < b ? a : b;
+        return (pos * 2) + 1;
     }
 
     bool comparar(int posPadre, int pos){
@@ -49,7 +45,7 @@ class MinHeap{
         else if(vec[posPadre]->precio == vec[pos]->precio && vec[posPadre]->id < vec[pos]->id){
             intercambia = true;
         }
-       return intercambia; 
+        return intercambia; 
     }
 
     void intercambiar(int posPadre, int pos){
@@ -70,11 +66,17 @@ class MinHeap{
     void hundir(int pos){
         int izq = hijoIzq(pos);
         int der = hijoDer(pos);
-        if (!vec[izq] && !vec[der]) return; // CB
-        int posMenorHijo = posMenorPrecio(izq, der);
-        if (comparar(pos, posMenorHijo)){
-            intercambiar(pos, posMenorHijo);
-            hundir(posMenorHijo);
+        if (izq >= primeroLibre && der >= primeroLibre) return; //CB
+        
+        int hijoMenorPrecio = izq;
+        if (der < primeroLibre) {
+            if (comparar(izq, der)) { 
+                hijoMenorPrecio = der; 
+            }
+        }
+        if (comparar(pos, hijoMenorPrecio)){
+            intercambiar(pos, hijoMenorPrecio);
+            hundir(hijoMenorPrecio);
         }
     }
 
@@ -90,14 +92,14 @@ class MinHeap{
 public:
     MinHeap(int cap){
         vec = new nodoHeap*[cap + 1]();
-        aux = new bool[cap + 1]();
+        impresos = new bool[cap + 1]();
         capacidad = cap;
         primeroLibre = 1;
     }
 
     ~MinHeap(){
         destruir();
-        delete[] aux;
+        delete[] impresos;
         capacidad = 0;
         primeroLibre = 1;
     }
@@ -117,16 +119,26 @@ public:
 
     void eliminar(){
         if(!estaVacio()){
-            vec[1] = vec[primeroLibre - 1];
+            intercambiar(1, primeroLibre - 1);
             delete vec[primeroLibre - 1];
-            hundir(1);
+            vec[primeroLibre - 1] = NULL;
             primeroLibre--;
+            hundir(1);
         }
     }
 
     void imprimirK(int k){
-        for(int i = 1; i < k; i++) {
-            cout << vec[i]->id << endl;
+        for(int i = 1; i <= k; i++) {
+            int p = peek();
+            if(impresos[p]){
+                eliminar();
+                i--;
+            }
+            else {
+                cout << p << endl;
+                impresos[p] = true;
+                eliminar();
+            }    
         }
     }
 };

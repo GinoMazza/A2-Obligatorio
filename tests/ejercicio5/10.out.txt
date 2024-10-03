@@ -1,0 +1,13 @@
+Ciudad inicial: Melbourne
+Melbourne -> Lima -> Canelones -> Colonia -> Estocolmo -> Mision: Asegurar_la_cuarta_llave - Estocolmo - Tiempo de viaje: 47
+Estocolmo -> Roma -> Vancouver -> El_Cairo -> Atenas -> Mision: Rastrear_satelite_pirata - Atenas - Tiempo de viaje: 65
+Atenas -> Berlin -> Moscu -> Beijing -> Dubai -> Montevideo -> Mision: Detener_fuga_de_informacion - Montevideo - Tiempo de viaje: 66
+Montevideo -> Melbourne -> Lima -> Canelones -> Los_Angeles -> Mision: Infiltrarse_red_financiera - Los_Angeles - Tiempo de viaje: 40
+Los_Angeles -> Canelones -> Lima -> Melbourne -> Sidney -> Hong_Kong -> Abu_Dhabi -> Bruselas -> Mision: Detener_fuga_de_informacion - Bruselas - Tiempo de viaje: 64
+Bruselas -> Abu_Dhabi -> Paysandu -> Helsinki -> Varsovia -> Mision: Infiltrarse_grupo - Varsovia - Tiempo de viaje: 94
+Varsovia -> Helsinki -> Paysandu -> Toronto -> Sidney -> Hong_Kong -> Mision: Descubrir_identidad_de_infiltrados - Hong_Kong - Tiempo de viaje: 63
+Hong_Kong -> Sidney -> Toronto -> Paysandu -> Maldonado -> Ciudad_de_Mexico -> Mision: Acceder_red_inteligencia - Ciudad_de_Mexico - Tiempo de viaje: 32
+Ciudad_de_Mexico -> Nueva_York -> Mision: Neutralizar_amenaza - Nueva_York - Tiempo de viaje: 49
+Nueva_York -> Los_Angeles -> Canelones -> Colonia -> Durazno -> Mision: Desactivar_la_Entidad - Durazno - Tiempo de viaje: 103
+Misiones ejecutadas con exito.
+Tiempo total de viaje: 623

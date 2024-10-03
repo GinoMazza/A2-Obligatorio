@@ -1,0 +1,17 @@
+5
+1 Montevideo
+2 Nueva_York
+3 Roma
+4 Tokio
+5 Moscu
+3
+2
+5
+4
+6
+1 2 20
+1 3 10
+1 5 5
+3 4 10
+3 5 8
+4 5 10

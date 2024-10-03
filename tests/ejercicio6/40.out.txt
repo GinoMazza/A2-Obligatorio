@@ -1,0 +1,5 @@
+BE11, la mejor ruta es Desactivar la Entidad, buscar equipo y punto de extraccion con un costo de 246
+La otra opcion tiene un costo de 249
+Paso 1: Amsterdam -> Atenas -> El_Cairo -> Roma -> Tokio -> Desactivar la Entidad
+Paso 2: Tokio -> Roma -> Abu_Dhabi_South -> Berlin -> Durazno -> Buscar equipo
+Paso 3: Durazno -> Ciudad_de_Mexico -> Ir a Punto de extraccion
