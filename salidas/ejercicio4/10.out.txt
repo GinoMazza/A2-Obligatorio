@@ -1,0 +1,6 @@
+2 0 true ORTastySignture
+7 0 true EggORTMuffin_ORTFlurryDeORTeos_ORTastySignture_CajitaEstudiosa
+3 10 false EggORTMuffin_BigORT_EggORTMuffin_ORTFlurryDeORTeos_ORTFlurryDeORTeos_ORTFlurryDeORTeos
+5 10 false ORTFlurryDeORTeos_BigORT_BigORT_EggORTMuffin_ORTFlurryDeORTeos_CajitaEstudiosa
+8 10 false ORTastySignture
+4 20 false ORTastySignture_ORTastySignture_ORTFlurryDeORTeos_BigORT_ORTNuggets
