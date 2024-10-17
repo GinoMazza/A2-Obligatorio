@@ -111,8 +111,6 @@ public:
 
     ~CPE(){
         destruir();
-        capacidad = 0;
-        primeroLibre = 1;
     }
 
     void insertar(int id, int prioridad, bool paraLlevar, string items){
