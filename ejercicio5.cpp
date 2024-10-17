@@ -3,34 +3,42 @@
 #include <iostream>
 #include <climits>
 #include <limits>
-#include "grafo.cpp"
+#include "grafoMisiones.cpp"
+#include "grafoCiudades.cpp"
 
 using namespace std;
 
 int main(){
     int cantM, cantC, cantE;
-    cin >> cantM; 
-    Grafo* misiones = new Grafo(cantM, true, false);
+
+    // Cargamos grafo misiones y vector misiones
+    cin >> cantM;
+    string* nombresM = new string[cantM+1]; 
+    GrafoM* misiones = new GrafoM(cantM, true, false);
     for(int i = 0; i < cantM; i++){
         int idMision, idCiudad, idSigMision;
         string nomMision;
         cin >> idMision >> nomMision >> idCiudad;
+        nombresM[idMision] = nomMision;
         bool sigo = true;
         while(sigo){
             cin >> idSigMision;
             if(idSigMision == 0) sigo = false;
-            misiones->agregarArista(idMision, idSigMision, 1);
+            misiones->agregarArista(idMision, idCiudad, idSigMision, 1);
         }
     }
+    
+    // Cargamos grafo ciudades y vector con nombres
     cin >> cantC;
-    string* arrCiudades = new string[cantC+1];
-    Grafo* ciudades = new Grafo(cantC, false, true);
+    string* nombresC = new string[cantC+1];
+    GrafoC* ciudades = new GrafoC(cantC, false, true);
     for(int i = 0; i < cantC; i++){
         int idCiudad;
         string nomCiudad;
         cin >> idCiudad >> nomCiudad;
-        arrCiudades[idCiudad] = nomCiudad;
+        nombresC[idCiudad] = nomCiudad;
     }
+
     cin >> cantE;
     for(int i = 0; i < cantE; i++){
         int idCiudadOrigen, idCiudadDestino, tiempoDesp;
@@ -38,12 +46,31 @@ int main(){
         ciudades->agregarArista(idCiudadOrigen, idCiudadDestino, tiempoDesp);
     }
 
-    // A PARTIR DE ACA VER Q CARAJO HACEMOS
+    // Hacemos el OT del grafo misiones
     int* ordenMisiones = misiones->OT();
+
+    // Inicializamos vectores para Dijkstra
     bool* visitados = new bool[cantC+1]();
     int* costos = initCostos(ordenMisiones[0], cantC);
     int* vengoDe = new int[cantC+1]();
-    ciudades->dijkstra(ordenMisiones, visitados, costos, vengoDe);
+    
+    // Acumulador para tiempo total
+    int tiempoTotal = 0;
+
+    // Imprimimos salida
+    for (int i = 0; i < cantM; i++) {
+        int idMision = ordenMisiones[i];
+        int idCiudadOrigen = misiones->getCiudadOrigen(idMision);
+        int idCiudadDestino = misiones->getCiudadDestino(idMision);
+        ciudades->dijkstra(idCiudadOrigen, visitados, costos, vengoDe);
+        tiempoTotal += ciudades->imprimir(idMision, idCiudadOrigen, idCiudadDestino, costos, vengoDe, nombresM, nombresC);
+    }
+
+    cout << "Ciudad inicial: " << nombresC[ordenMisiones[0]] << endl;
+
+    cout << "Misiones ejecutadas con exito." << endl;
+    cout << "Tiempo total de viaje: " << tiempoTotal << endl;
+
 }
 
 int* initCostos(int origen, int cantC){
@@ -52,4 +79,5 @@ int* initCostos(int origen, int cantC){
         if(i == origen) costos[i] = 0;
         else costos[i] = INT_MAX;
     }
+    return costos;
 }
