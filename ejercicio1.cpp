@@ -2,7 +2,7 @@
 #include <string>
 #include <iostream>
 #include <limits>
-#include "avl.cpp"
+#include "ejercicio1/avl.cpp"
 
 using namespace std;
 

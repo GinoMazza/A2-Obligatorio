@@ -35,9 +35,9 @@ class THash{
 
     // Función para verificar si un número es primo
     bool esPrimo(int n) {
-        if (n <= 1) return false; // Los números menores o iguales a 1 no son primos
-        if (n == 2 || n == 3) return true; // 2 y 3 son primos
-        if (n % 2 == 0 || n % 3 == 0) return false; // Números divisibles por 2 o 3 no son primos
+        if (n <= 1) return false;
+        if (n == 2 || n == 3) return true;
+        if (n % 2 == 0 || n % 3 == 0) return false;
 
         // Probar divisores hasta la raíz cuadrada de n
         for (int i = 5; i * i <= n; i += 6) {
@@ -50,12 +50,9 @@ class THash{
     // Función para encontrar el primo mayor más cercano
     int primoMayorCercano(int n) {
         int mayor = n + 1;
-
-        // Buscar hacia arriba el próximo primo
         while (!esPrimo(mayor)) {
             mayor++;
         }
-
         return mayor;
     }
 
@@ -66,7 +63,6 @@ class THash{
                 return i;
             }
         }
-        // Si no se encuentra ningún primo, retorna -1
         return -1;
     }
 
@@ -183,9 +179,6 @@ class THash{
 
     ~THash(){
 		destruir();
-        tam = 0;
-		totales = 0;
-		habilitados = 0;
 	}
 
     void add(int id, string titulo) {

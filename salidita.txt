@@ -1,0 +1,61 @@
+Entra a adyacentes con: 1
+0x10a7bc0
+Entra a adyacentes con: 2
+0x10a7c40
+Entra a adyacentes con: 3
+0x10a7cd0
+Entra a adyacentes con: 4
+0x10a7c80
+Entra a adyacentes con: 5
+0
+Entra a encolar
+Entra a encolar
+Actual: 1
+Entra a adyacentes con: 1
+0x10a7bc0
+Sale de adyacentes de: 1
+En el while
+Grado de: 2 1
+Grado disminuido de: 2 0
+Encolando: 2
+Con tiempo: 350
+Entra a encolar
+Encolado: 2
+En el while
+Grado de: 5 4
+Grado disminuido de: 5 3
+Fin de adyacentes
+Actual: 2
+Entra a adyacentes con: 2
+0x10a7c40
+Sale de adyacentes de: 2
+En el while
+Grado de: 5 3
+Grado disminuido de: 5 2
+En el while
+Grado de: 4 2
+Grado disminuido de: 4 1
+Fin de adyacentes
+Actual: 3
+Entra a adyacentes con: 3
+0x10a7cd0
+Sale de adyacentes de: 3
+En el while
+Grado de: 4 1
+Grado disminuido de: 4 0
+Encolando: 4
+Con tiempo: 1400
+Entra a encolar
+Encolado: 4
+En el while
+Grado de: 5 2
+Grado disminuido de: 5 1
+Fin de adyacentes
+Actual: 4
+Entra a adyacentes con: 4
+0x10a7c80
+Sale de adyacentes de: 4
+En el while
+Grado de: 5 1
+Grado disminuido de: 5 0
+Encolando: 5

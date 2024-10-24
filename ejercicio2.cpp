@@ -2,7 +2,7 @@
 #include <string>
 #include <iostream>
 #include <limits>
-#include "hash.cpp"
+#include "ejercicio2/hash.cpp"
 
 using namespace std;
 

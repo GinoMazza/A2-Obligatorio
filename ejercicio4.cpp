@@ -2,7 +2,7 @@
 #include <string>
 #include <iostream>
 #include <limits>
-#include "cpe.cpp"
+#include "ejercicio4/cpe.cpp"
 
 using namespace std;
 

@@ -2,7 +2,7 @@
 #include <string>
 #include <iostream>
 #include <limits>
-#include "heap.cpp"
+#include "ejercicio3/heap.cpp"
 
 using namespace std;
 

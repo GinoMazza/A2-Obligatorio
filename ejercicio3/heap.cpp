@@ -100,8 +100,6 @@ public:
     ~MinHeap(){
         destruir();
         delete[] impresos;
-        capacidad = 0;
-        primeroLibre = 1;
     }
 
     void insertar(int id, int precio){
