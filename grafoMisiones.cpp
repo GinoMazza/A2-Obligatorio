@@ -128,20 +128,24 @@ public:
             cout << "Sale de adyacentes de: " << actual << endl;
             while (ady)
             {
-                cout << "En el while" << endl;
-                int dest = ady->sigMision;
-                cout << "Grado de: " << dest << " " << grados[dest] << endl;
-                grados[dest]--;
-                cout << "Grado disminuido de: " << dest << " " << grados[dest] << endl;
-                if (grados[dest] == 0)
-                {
-                    cout << "Encolando: " << dest << endl;
-                    cout << "Con tiempo: " << tiemposCiudades[vertices[dest]->ciudadOrigen] << endl;
-                    s->encolar(dest, tiemposCiudades[vertices[dest]->ciudadOrigen]);
-                    cout << "Encolado: " << dest << endl;
+                if(ady->sigMision != 0){
+                    cout << "En el while" << endl;
+                    int dest = ady->sigMision;
+                    cout << "Grado de: " << dest << " " << grados[dest] << endl;
+                    grados[dest]--;
+                    cout << "Grado disminuido de: " << dest << " " << grados[dest] << endl;
+                    if (grados[dest] == 0)
+                    {
+                        cout << "Encolando: " << dest << endl;
+                        cout << vertices[dest]->ciudadOrigen << endl;
+                        cout << "Con tiempo: " << tiemposCiudades[vertices[dest]->ciudadOrigen] << endl;
+                        s->encolar(dest, tiemposCiudades[vertices[dest]->ciudadOrigen]);
+                        cout << "Encolado: " << dest << endl;
+                    }
                 }
                 ady = ady->sig;
             }
+            delete[] tiemposCiudades;
             cout << "Fin de adyacentes" << endl;
         }
         cout << "Termina OT" << endl;

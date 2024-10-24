@@ -25,9 +25,13 @@ int main()
                     while (sigo)
                     {
                               cin >> idSigMision;
-                              if (idSigMision == 0)
+                              if (idSigMision == 0){
                                         sigo = false;
-                              else misiones->agregarArista(idMision, idCiudad, idSigMision, 1);
+                              }
+                              //           misiones->agregarArista(idMision, idCiudad, idSigMision, 1);
+                              // }
+                              // else 
+                              misiones->agregarArista(idMision, idCiudad, idSigMision, 1);
                     }
           }
 
