@@ -5,4 +5,4 @@ New_York -> Roma -> Mision: Obtener_informacion_confidencial - Roma - Tiempo de 
 Roma -> New_York -> Tokio -> Mision: Extraer_codigo_fuente - Tokio - Tiempo de viaje: 1400
 Tokio -> New_York -> Roma -> Londres -> Mision: Desactivar_la_Entidad - Londres - Tiempo de viaje: 1700
 Misiones ejecutadas con exito.
-Tiempo total de viaje: 4070
+Tiempo total de viaje: 3960

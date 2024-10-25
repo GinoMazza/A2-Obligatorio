@@ -60,6 +60,16 @@ public:
 
     ~GrafoM()
     {
+        for (int i = 1; i <= V; i++)
+        {
+            AristaMis *a = vertices[i];
+            while (a)
+            {
+                AristaMis *aBorrar = a;
+                a = a->sig;
+                delete aBorrar;
+            }
+        }
         delete[] vertices;
     }
 
@@ -75,8 +85,6 @@ public:
 
     AristaMis *adyacentes(int vertice)
     {
-        cout << "Entra a adyacentes con: " << vertice << endl;
-        cout << vertices[vertice] << endl;
         return vertices[vertice];
     }
 
@@ -120,41 +128,35 @@ public:
         while (!s->estaVacio())
         {
             int actual = s->desencolar();
-            cout << "Actual: " << actual << endl;
+            //cout << "Actual: " << actual << endl;
             ot[pos] = actual;
             pos++;
             int *tiemposCiudades = ciudades->dijkstra(vertices[actual]->ciudadOrigen);
             AristaMis *ady = adyacentes(actual);
-            cout << "Sale de adyacentes de: " << actual << endl;
+            //cout << "Sale de adyacentes de: " << actual << endl;
             while (ady)
             {
                 if(ady->sigMision != 0){
-                    cout << "En el while" << endl;
+                    //cout << "En el while" << endl;
                     int dest = ady->sigMision;
-                    cout << "Grado de: " << dest << " " << grados[dest] << endl;
+                    //cout << "Grado de: " << dest << " " << grados[dest] << endl;
                     grados[dest]--;
-                    cout << "Grado disminuido de: " << dest << " " << grados[dest] << endl;
+                    //cout << "Grado disminuido de: " << dest << " " << grados[dest] << endl;
                     if (grados[dest] == 0)
                     {
-                        cout << "Encolando: " << dest << endl;
-                        cout << vertices[dest]->ciudadOrigen << endl;
-                        cout << "Con tiempo: " << tiemposCiudades[vertices[dest]->ciudadOrigen] << endl;
+                        //cout << "Encolando: " << dest << endl;
+                        //cout << vertices[dest]->ciudadOrigen << endl;
+                        //cout << "Con tiempo: " << tiemposCiudades[vertices[dest]->ciudadOrigen] << endl;
                         s->encolar(dest, tiemposCiudades[vertices[dest]->ciudadOrigen]);
-                        cout << "Encolado: " << dest << endl;
+                        //cout << "Encolado: " << dest << endl;
                     }
                 }
                 ady = ady->sig;
             }
             delete[] tiemposCiudades;
-            cout << "Fin de adyacentes" << endl;
+            //cout << "Fin de adyacentes" << endl;
         }
-        cout << "Termina OT" << endl;
+        //cout << "Termina OT" << endl;
         return ot;
     }
-
-    // ENCOLAR ID DE MISION Y EL COSTO DE LLEGAR A LA CIUDAD DE ESA MISION DESDE LA QUE ESTAMOS
-
-    //* cpe!!!! encolamos solo los de grado entrada 0 y asociamos costo a la ciudad de destino desde la que estamos ahora
-    //* actualizar costos en la cpe cada vez que cambiamos de ciudad de origen en cada paso
-    // dijkstra con actual como origen para saber cual mision hago primero por el costo
 };

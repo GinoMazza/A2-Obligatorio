@@ -120,17 +120,14 @@ public:
     }
 
     void encolar(int id, int tiempo){
-        cout << "Entra a encolar" << endl;
+        //cout << "Entra a encolar" << endl;
         if(!estaLleno()) {
-            //if(existe(id)) actualizar(id, tiempo);
-            //else{
-                nodoHeap* nuevo = new nodoHeap(id, tiempo);
-                vec[primeroLibre] = nuevo;
-                posiciones[id] = primeroLibre;
-                flotar(primeroLibre);
-                primeroLibre++;
-                cantElem++;
-            //}
+            nodoHeap* nuevo = new nodoHeap(id, tiempo);
+            vec[primeroLibre] = nuevo;
+            posiciones[id] = primeroLibre;
+            flotar(primeroLibre);
+            primeroLibre++;
+            cantElem++;
         }
     }
 

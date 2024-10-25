@@ -4,9 +4,17 @@
 #include <climits>
 #include <limits>
 #include "grafoMisiones.cpp"
-#include "grafoCiudades.cpp"
 
 using namespace std;
+
+void imprimirCamino(int *vengoDe, int idDestino, string *nomC, string *nomM)
+{
+    if (vengoDe[idDestino] != 0)
+    {
+        imprimirCamino(vengoDe, vengoDe[idDestino], nomC, nomM);
+    }
+    cout << nomC[idDestino] << " -> ";
+}
 
 int main()
 {
@@ -27,8 +35,10 @@ int main()
         {
             cin >> idSigMision;
             if (idSigMision == 0)
+            {
                 sigo = false;
-            else misiones->agregarArista(idMision, idCiudad, idSigMision, 1);
+            }
+            misiones->agregarArista(idMision, idCiudad, idSigMision, 1);
         }
     }
 
@@ -58,20 +68,21 @@ int main()
 
     // Acumulador para tiempo total
     int tiempoTotal = 0;
+    int origen = ciudadInicio;
+    cout << "Ciudad inicial: " << nombresC[origen] << endl;
 
-    // Imprimimos salida
+    // Recorremos las misiones en el orden obtenido
     for (int i = 0; i < cantM; i++)
     {
+        int *tiempos = ciudades->dijkstra(origen);
+        int *vengoDe = ciudades->getVengoDe();
         int idMision = ordenMisiones[i];
-        int idCiudadOrigen = misiones->getCiudadOrigen(idMision);
-        int idCiudadDestino = misiones->getCiudadDestino(idMision);
-        int *costos = ciudades->dijkstra(idCiudadOrigen);
-        //int *vengoDe = ciudades->getVengoDe();
-        ciudades->imprimir(idMision, idCiudadOrigen, idCiudadDestino, costos, vengoDe, nombresM, nombresC);
-        tiempoTotal += costos[idCiudadDestino];
+        int idCiudadDestino = misiones->getCiudadOrigen(idMision);
+        tiempoTotal += tiempos[idCiudadDestino];
+        imprimirCamino(vengoDe, idCiudadDestino, nombresC, nombresM);
+        cout << "Mision: " << nombresM[idMision] << " - " << nombresC[idCiudadDestino] << " - " << "Tiempo de viaje: " << tiempos[idCiudadDestino] << endl;
+        origen = idCiudadDestino;
     }
-
-    cout << "Ciudad inicial: " << nombresC[ordenMisiones[0]] << endl;
     cout << "Misiones ejecutadas con exito." << endl;
     cout << "Tiempo total de viaje: " << tiempoTotal << endl;
 }

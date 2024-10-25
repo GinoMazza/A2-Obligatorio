@@ -24,6 +24,7 @@ private:
     int V;
     bool dirigido;
     bool ponderado;
+    int *vengoDe;
 
     int *initTiempos(int origen)
     {
@@ -40,15 +41,15 @@ private:
 
     int *initVengoDe(int origen)
     {
-        int *vengoDe = new int[V + 1];
+        int *nuevo = new int[V + 1];
         for (int i = 1; i <= V; i++)
         {
             if (i == origen)
-                vengoDe[i] = origen;
+                nuevo[i] = 0;
             else
-                vengoDe[i] = -1;
+                nuevo[i] = -1;
         }
-        return vengoDe;
+        return nuevo;
     }
 
 public:
@@ -58,16 +59,33 @@ public:
         V = cantV;
         dirigido = esDirigido;
         ponderado = esPonderado;
+        vengoDe = new int[cantV + 1]();
     }
 
     ~GrafoC()
     {
+        for (int i = 1; i <= V; i++)
+        {
+            Arista *a = vertices[i];
+            while (a)
+            {
+                Arista *aBorrar = a;
+                a = a->sig;
+                delete aBorrar;
+            }
+        }
         delete[] vertices;
+        delete[] vengoDe;
     }
 
     int getV()
     {
         return V;
+    }
+
+    int *getVengoDe()
+    {
+        return vengoDe;
     }
 
     Arista *adyacentes(int vertice)
@@ -98,7 +116,7 @@ public:
     {
         bool *visitados = new bool[V + 1]();
         int *tiempos = initTiempos(ciudadOrigen);
-        int *vengoDe = initVengoDe(ciudadOrigen);
+        vengoDe = initVengoDe(ciudadOrigen);
         CP *cp = new CP(V * V);
         cp->encolar(ciudadOrigen, 0);
         visitados[ciudadOrigen] = true;
@@ -115,20 +133,12 @@ public:
                 {
                     tiempos[dest] = tiempos[actual] + tiempoViaje;
                     vengoDe[dest] = actual;
-                    cp->encolar(dest, tiempoViaje);
+                    cp->encolar(dest, tiempos[dest]);
                 }
                 ady = ady->sig;
             }
         }
+        delete[] visitados;
         return tiempos;
-    }
-
-    int imprimir(int idMision, int idCiudadOrigen, int idCiudadDestino, int *costos, int *vengoDe, string *nombresM, string *nombresC)
-    {
-        // recursivo en vengoDe
-        // cout << nombresC[vengoDe[x]] << "-> ";
-        cout << "Mision: " << nombresM[idMision] << " - ";
-        cout << nombresC[idCiudadOrigen] << " - ";
-        cout << "Tiempo de viaje: " << costos[idCiudadDestino];
     }
 };

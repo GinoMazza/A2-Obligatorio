@@ -96,8 +96,6 @@ public:
     ~CP(){
         destruir();
         delete[] impresos;
-        capacidad = 0;
-        primeroLibre = 1;
     }
 
     void encolar(int id, int precio){
