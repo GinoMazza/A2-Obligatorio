@@ -1,42 +1,50 @@
 #include <iostream>
 using namespace std;
 
-class AVL {
-	private:
-	struct NodoAVL {
+class AVL
+{
+private:
+	struct NodoAVL
+	{
 		int id;
-        string titulo;
-        char estado;
-        int altura;
-		NodoAVL* izq;
-        NodoAVL* der;
+		string titulo;
+		char estado;
+		int altura;
+		NodoAVL *izq;
+		NodoAVL *der;
 		NodoAVL(int i, string t) : id(i), titulo(t), estado('H'), izq(NULL), der(NULL), altura(1) {}
 	};
 
-	NodoAVL* raiz;
-    int totales;
-    int habilitados;
+	NodoAVL *raiz;
+	int totales;
+	int habilitados;
 
-    //Funcion que retorna el mayor de dos numeros
-	int max(int a, int b) {
+	int max(int a, int b)
+	{
 		return a > b ? a : b;
 	}
 
-	// Funcion para acceder a la altura del nodo, si el nodo es nulo, la altura es 0
-	int altura(NodoAVL* n) {
-		if (!n) return 0;
+	// Devuelve la altura del nodo (si es nulo da 0)
+	int altura(NodoAVL *n)
+	{
+		if (!n)
+			return 0;
 		return n->altura;
 	}
 
-	// Funcion para calcular el balance del nodo
-	int balance(NodoAVL* n) {
-		if (!n) return 0;
+	// Calcula el balance del nodo
+	int balance(NodoAVL *n)
+	{
+		if (!n)
+			return 0;
 		return altura(n->izq) - altura(n->der);
 	}
 
-	NodoAVL* rotacionHoraria(NodoAVL* A) {
-		NodoAVL* B = A->izq;
-		NodoAVL* T2 = B->der;
+	// Rotaciones
+	NodoAVL *rotacionHoraria(NodoAVL *A)
+	{
+		NodoAVL *B = A->izq;
+		NodoAVL *T2 = B->der;
 		B->der = A;
 		A->izq = T2;
 		A->altura = 1 + max(altura(A->izq), altura(A->der));
@@ -44,9 +52,10 @@ class AVL {
 		return B;
 	}
 
-	NodoAVL* rotacionAntiHoraria(NodoAVL* B) {
-		NodoAVL* A = B->der;
-		NodoAVL* T2 = A->izq;
+	NodoAVL *rotacionAntiHoraria(NodoAVL *B)
+	{
+		NodoAVL *A = B->der;
+		NodoAVL *T2 = A->izq;
 		A->izq = B;
 		B->der = T2;
 		B->altura = 1 + max(altura(B->izq), altura(B->der));
@@ -54,32 +63,39 @@ class AVL {
 		return A;
 	}
 
-	void destruir(NodoAVL* nodo){
-		if(!nodo) return;
+	void destruir(NodoAVL *nodo)
+	{
+		if (!nodo)
+			return;
 		destruir(nodo->izq);
 		destruir(nodo->der);
 		delete nodo;
 		nodo = NULL;
 	}
 
-	NodoAVL* insertarAux(NodoAVL* nodo, int id, string titulo) {
-		if(!nodo){ 
-            totales++;
-            habilitados++;
-            return new NodoAVL(id, titulo);
-        }
-		if(id < nodo->id) nodo->izq = insertarAux(nodo->izq, id, titulo);
-		else if(id > nodo->id) nodo->der = insertarAux(nodo->der, id, titulo);
-		else{
-            nodo->titulo = titulo;
-            if(nodo->estado == 'D'){
-                nodo->estado = 'H';
-                habilitados++;
-            }
+	NodoAVL *insertarAux(NodoAVL *nodo, int id, string titulo)
+	{
+		if (!nodo)
+		{
+			totales++;
+			habilitados++;
+			return new NodoAVL(id, titulo);
+		}
+		if (id < nodo->id)
+			nodo->izq = insertarAux(nodo->izq, id, titulo);
+		else if (id > nodo->id)
+			nodo->der = insertarAux(nodo->der, id, titulo);
+		else
+		{
+			nodo->titulo = titulo;
+			if (nodo->estado == 'D')
+			{
+				nodo->estado = 'H';
+				habilitados++;
+			}
 			return nodo;
-        }
-            
-		
+		}
+
 		// A la vuelta de la recursión, actualizo la altura del nodo en el que estoy
 		nodo->altura = 1 + max(altura(nodo->izq), altura(nodo->der));
 
@@ -90,21 +106,23 @@ class AVL {
 		bool desbalanceoDer = balanceo < -1;
 
 		// Caso izquierda izquierda
-		if(desbalanceoIzq && id < nodo->izq->id) return rotacionHoraria(nodo);
-		
+		if (desbalanceoIzq && id < nodo->izq->id)
+			return rotacionHoraria(nodo);
 
 		// Caso derecha derecha
-		if(desbalanceoDer && id > nodo->der->id) return rotacionAntiHoraria(nodo);
-		
+		if (desbalanceoDer && id > nodo->der->id)
+			return rotacionAntiHoraria(nodo);
 
 		// Caso izquierda derecha
-		if(desbalanceoIzq && id > nodo->izq->id) {
+		if (desbalanceoIzq && id > nodo->izq->id)
+		{
 			nodo->izq = rotacionAntiHoraria(nodo->izq);
 			return rotacionHoraria(nodo);
 		}
 
 		// Caso derecha izquierda
-		if(desbalanceoDer && id < nodo->der->id) {
+		if (desbalanceoDer && id < nodo->der->id)
+		{
 			nodo->der = rotacionHoraria(nodo->der);
 			return rotacionAntiHoraria(nodo);
 		}
@@ -112,55 +130,71 @@ class AVL {
 		return nodo;
 	}
 
-    void toggleAux(NodoAVL* nodo, int id){
-        if(!nodo) cout << "libro_no_encontrado" << endl;
-        else if(id < nodo->id) toggleAux(nodo->izq, id);
-        else if(id > nodo->id) toggleAux(nodo->der, id);
-        else{
-            if(nodo->estado == 'D'){
-                nodo->estado = 'H';
-                habilitados++;
-            }
-            else{
-                nodo->estado = 'D';
-                habilitados--;
-            }
-        }    
-    }
+	void toggleAux(NodoAVL *nodo, int id)
+	{
+		if (!nodo)
+			cout << "libro_no_encontrado" << endl;
+		else if (id < nodo->id)
+			toggleAux(nodo->izq, id);
+		else if (id > nodo->id)
+			toggleAux(nodo->der, id);
+		else
+		{
+			if (nodo->estado == 'D')
+			{
+				nodo->estado = 'H';
+				habilitados++;
+			}
+			else
+			{
+				nodo->estado = 'D';
+				habilitados--;
+			}
+		}
+	}
 
-    void findAux(NodoAVL* nodo, int id){
-        if(!nodo) cout << "libro_no_encontrado" << endl;
-        else if(id < nodo->id) findAux(nodo->izq, id);
-        else if(id > nodo->id) findAux(nodo->der, id);
-        else cout << nodo->titulo << " " << nodo->estado << endl;
-    }
- 
-	public:
-	AVL(){
+	void findAux(NodoAVL *nodo, int id)
+	{
+		if (!nodo)
+			cout << "libro_no_encontrado" << endl;
+		else if (id < nodo->id)
+			findAux(nodo->izq, id);
+		else if (id > nodo->id)
+			findAux(nodo->der, id);
+		else
+			cout << nodo->titulo << " " << nodo->estado << endl;
+	}
+
+public:
+	AVL()
+	{
 		raiz = NULL;
 		totales = 0;
 		habilitados = 0;
 	}
 
-	~AVL(){
+	~AVL()
+	{
 		destruir(raiz);
-		totales = 0;
-		habilitados = 0;
 	}
 
-	void add(int id, string titulo) {
+	void add(int id, string titulo)
+	{
 		raiz = insertarAux(raiz, id, titulo);
 	}
 
-    void find(int id){
-        findAux(raiz, id);
-    }
+	void find(int id)
+	{
+		findAux(raiz, id);
+	}
 
-    void toggle(int id){
-        toggleAux(raiz, id);
-    }
+	void toggle(int id)
+	{
+		toggleAux(raiz, id);
+	}
 
-    void count(){
-        cout << totales << " " << habilitados << " " << totales-habilitados << endl;
-    }
+	void count()
+	{
+		cout << totales << " " << habilitados << " " << totales - habilitados << endl;
+	}
 };

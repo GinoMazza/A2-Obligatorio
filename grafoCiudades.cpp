@@ -141,4 +141,40 @@ public:
         delete[] visitados;
         return tiempos;
     }
+
+    //* Funciones para ejercicio6
+
+    void duplicarCamino(int origen, int destino)
+    {
+        if (vengoDe[destino] != 0)
+        {
+            Arista *a1 = vertices[destino];
+            bool sigo1 = true;
+            while (a1 && sigo1)
+            {
+                if (a1->destino == vengoDe[destino])
+                {
+                    a1->tiempo = a1->tiempo * 2;
+                    sigo1 = false;
+                }
+                a1 = a1->sig;
+            }
+            Arista *a2 = vertices[vengoDe[destino]];
+            bool sigo2 = true;
+            while (a2 && sigo2)
+            {
+                if (a2->destino == destino)
+                {
+                    a2->tiempo = a2->tiempo * 2;
+                    sigo2 = false;
+                }
+                a2 = a2->sig;
+            }
+            delete[] a1;
+            delete[] a2;
+            duplicarCamino(origen, vengoDe[destino]);
+        }
+    }
+
+    //* Fin funciones para ejercicio6
 };

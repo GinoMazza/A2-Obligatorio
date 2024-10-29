@@ -6,12 +6,14 @@
 
 using namespace std;
 
-int main(){
+int main()
+{
     int N = 0;
     int K = 0;
     cin >> N;
-    MinHeap* heap = new MinHeap(N);
-    for (int i = 0; i < N; i++){
+    MinHeap *heap = new MinHeap(N);
+    for (int i = 0; i < N; i++)
+    {
         int id;
         int precio;
         cin >> id >> precio;
