@@ -120,8 +120,12 @@ public:
     }
 
     void encolar(int id, int tiempo){
-        //cout << "Entra a encolar" << endl;
-        if(!estaLleno()) {
+        // Si ya existe, actualizar (checkear si ya lo encole y si ya esta lo actualiza)
+        if(existe(id)) {
+            actualizar(id, tiempo);
+        }
+        
+        else if(!estaLleno()) {
             nodoHeap* nuevo = new nodoHeap(id, tiempo);
             vec[primeroLibre] = nuevo;
             posiciones[id] = primeroLibre;

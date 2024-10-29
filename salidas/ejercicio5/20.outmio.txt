@@ -1,8 +1,8 @@
 Ciudad inicial: Vancouver
-Vancouver -> Colonia -> Toronto -> Tokio -> Moscu -> Abu_Dhabi -> Hong_Kong -> Berlin -> Beijing -> Mision: Establecer_punto_seguro - Beijing - Tiempo de viaje: 84
+Vancouver -> Colonia -> Toronto -> Melbourne -> Berlin -> Beijing -> Mision: Establecer_punto_seguro - Beijing - Tiempo de viaje: 81
 Beijing -> Berlin -> Melbourne -> Mision: Asegurar_artefacto - Melbourne - Tiempo de viaje: 26
 Melbourne -> Caracas -> Mision: Acceder_a_sistemas_seguridad - Caracas - Tiempo de viaje: 13
-Caracas -> Helsinki -> Bruselas -> Mision: Detener_ataque_cibernetico - Bruselas - Tiempo de viaje: 86
+Caracas -> Melbourne -> Sidney -> Paysandu -> Bruselas -> Mision: Detener_ataque_cibernetico - Bruselas - Tiempo de viaje: 84
 Bruselas -> Paysandu -> Maldonado -> Toronto -> Colonia -> Vancouver -> Mision: Identificar_objetivo_secundario - Vancouver - Tiempo de viaje: 92
 Vancouver -> Helsinki -> Varsovia -> Mision: Asegurar_artefacto - Varsovia - Tiempo de viaje: 51
 Varsovia -> Helsinki -> Caracas -> Salto -> Bogota -> Mision: Anular_defensas_enemigas - Bogota - Tiempo de viaje: 63
@@ -18,6 +18,6 @@ Quito -> Paris -> Copenhague -> Ciudad_del_Cabo -> Montevideo -> Mision: Recuper
 Montevideo -> Amsterdam -> Berlin -> Los_Angeles -> Ciudad_de_Mexico -> Mision: Desactivar_artefacto - Ciudad_de_Mexico - Tiempo de viaje: 134
 Ciudad_de_Mexico -> Lima -> Caracas -> Helsinki -> Mision: Identificar_objetivo_secundario - Helsinki - Tiempo de viaje: 111
 Helsinki -> Caracas -> Estocolmo -> Montevideo -> Mision: Proteger_emisarios - Montevideo - Tiempo de viaje: 108
-Montevideo -> Amsterdam -> Berlin -> Melbourne -> Caracas -> Salto -> Punta_del_Este -> Mision: Desactivar_la_Entidad - Punta_del_Este - Tiempo de viaje: 129
+Montevideo -> Estocolmo -> Caracas -> Salto -> Punta_del_Este -> Mision: Desactivar_la_Entidad - Punta_del_Este - Tiempo de viaje: 126
 Misiones ejecutadas con exito.
-Tiempo total de viaje: 1424
+Tiempo total de viaje: 1416
