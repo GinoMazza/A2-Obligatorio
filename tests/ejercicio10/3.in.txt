@@ -1,0 +1,6 @@
+3
+4
+Azul 0
+Verde -1
+Amarillo 2
+Naranja 2

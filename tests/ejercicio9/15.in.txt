@@ -1,0 +1,17 @@
+15
+75 84 64 95 45 77 Buena 2582 Si Alta
+54 81 62 74 83 88 Mala 379 No Baja
+63 77 58 46 54 96 Buena 108 No Alta
+71 63 48 63 45 67 Buena 4538 No Regular
+95 76 91 45 75 60 Buena 3651 Si Alta
+59 69 63 57 96 92 Mala 3590 No Alta
+87 63 83 81 54 78 Mala 342 No Alta
+81 90 91 52 74 45 Mala 2474 Si Baja
+67 83 75 79 83 86 Normal 2314 No Alta
+99 86 77 98 66 54 Mala 2253 No Alta
+79 76 64 66 53 88 Buena 2465 Si Regular
+91 85 79 51 91 52 Buena 3831 No Regular
+59 56 48 93 64 63 Mala 4193 Si Alta
+65 88 69 62 60 72 Lesionado 684 Si Regular
+83 75 56 93 70 84 Mala 1739 No Alta
+50000 2

@@ -1,0 +1,9 @@
+6
+7
+Verde 0
+Marron 4
+Violeta 2
+Azul 2
+Amarillo 0
+Rojo 4
+Naranja 0
