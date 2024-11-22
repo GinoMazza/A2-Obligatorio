@@ -1,5 +1,5 @@
-BE11, la mejor ruta es Desactivar la Entidad, buscar equipo y punto de extraccion con un costo de 59
-La otra opcion tiene un costo de 77
-Paso 1: Johannesburgo -> Dubai -> Salinas -> Desactivar la Entidad
-Paso 2: Salinas -> Ciudad_del_Vaticano -> Londres -> Monaco -> Canelones -> Buscar equipo
-Paso 3: Canelones -> San_Pablo -> Quito -> Viena -> Ir a Punto de extraccion
+BE11, la mejor ruta es Desactivar la Entidad, buscar equipo y punto de extraccion con un costo de 75
+La otra opcion tiene un costo de 78
+Paso 1: Moscu -> Bratislava -> Roma -> El_Cairo -> Desactivar la Entidad
+Paso 2: El_Cairo -> Berlin -> Ciudad_de_Mexico -> Varsovia_Vieja -> Estambul -> Liubliana -> Teheran -> Buscar equipo
+Paso 3: Teheran -> Edimburgo -> Riga -> Luxemburgo -> Praga -> Ir a Punto de extraccion

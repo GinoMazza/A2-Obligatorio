@@ -1,13 +1,13 @@
-Ciudad inicial: Melbourne
-Melbourne -> Lima -> Canelones -> Colonia -> Estocolmo -> Mision: Asegurar_la_cuarta_llave - Estocolmo - Tiempo de viaje: 47
-Estocolmo -> Roma -> Vancouver -> El_Cairo -> Atenas -> Mision: Rastrear_satelite_pirata - Atenas - Tiempo de viaje: 65
-Atenas -> Berlin -> Moscu -> Beijing -> Dubai -> Montevideo -> Mision: Detener_fuga_de_informacion - Montevideo - Tiempo de viaje: 66
-Montevideo -> Melbourne -> Lima -> Canelones -> Los_Angeles -> Mision: Infiltrarse_red_financiera - Los_Angeles - Tiempo de viaje: 40
-Los_Angeles -> Canelones -> Lima -> Melbourne -> Sidney -> Hong_Kong -> Abu_Dhabi -> Bruselas -> Mision: Detener_fuga_de_informacion - Bruselas - Tiempo de viaje: 64
-Bruselas -> Abu_Dhabi -> Paysandu -> Helsinki -> Varsovia -> Mision: Infiltrarse_grupo - Varsovia - Tiempo de viaje: 94
-Varsovia -> Helsinki -> Paysandu -> Toronto -> Sidney -> Hong_Kong -> Mision: Descubrir_identidad_de_infiltrados - Hong_Kong - Tiempo de viaje: 63
-Hong_Kong -> Sidney -> Toronto -> Paysandu -> Maldonado -> Ciudad_de_Mexico -> Mision: Acceder_red_inteligencia - Ciudad_de_Mexico - Tiempo de viaje: 32
-Ciudad_de_Mexico -> Nueva_York -> Mision: Neutralizar_amenaza - Nueva_York - Tiempo de viaje: 49
-Nueva_York -> Los_Angeles -> Canelones -> Colonia -> Durazno -> Mision: Desactivar_la_Entidad - Durazno - Tiempo de viaje: 103
+Ciudad inicial: Maldonado
+Maldonado -> Paysandu -> Singapur -> Brasilia -> Salto -> Mision: Impedir_sabotaje_inminente - Salto - Tiempo de viaje: 64
+Salto -> Bruselas -> Lisboa -> Ciudad_de_Mexico -> Mision: Establecer_contacto_confidencial - Ciudad_de_Mexico - Tiempo de viaje: 43
+Ciudad_de_Mexico -> Lisboa -> San_Pablo -> Mision: Obtener_informacion_confidencial - San_Pablo - Tiempo de viaje: 29
+San_Pablo -> Lisboa -> Ciudad_de_Mexico -> Bogota -> Mision: Recuperar_control_de_sistema - Bogota - Tiempo de viaje: 57
+Bogota -> Ciudad_de_Mexico -> Paysandu -> Mision: Eliminar_trazabilidad_de_mision - Paysandu - Tiempo de viaje: 49
+Paysandu -> Durazno -> Londres -> Buenos_Aires -> Mision: Extraer_codigo_fuente - Buenos_Aires - Tiempo de viaje: 43
+Buenos_Aires -> San_Pablo -> Lisboa -> Madrid -> Mision: Interceptar_transmision_secreta - Madrid - Tiempo de viaje: 91
+Madrid -> Montevideo -> Johannesburgo -> Durazno -> Hong_Kong -> Mision: Acceder_red_inteligencia - Hong_Kong - Tiempo de viaje: 73
+Hong_Kong -> Durazno -> Paysandu -> Singapur -> Los_Angeles -> Paris -> Mision: Acceder_a_sistemas_seguridad - Paris - Tiempo de viaje: 42
+Paris -> Los_Angeles -> Singapur -> Paysandu -> Durazno -> Londres -> Buenos_Aires -> Mision: Desactivar_la_Entidad - Buenos_Aires - Tiempo de viaje: 78
 Misiones ejecutadas con exito.
-Tiempo total de viaje: 623
+Tiempo total de viaje: 569

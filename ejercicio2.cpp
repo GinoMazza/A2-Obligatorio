@@ -8,6 +8,7 @@ using namespace std;
 
 int main()
 {
+    // Inicializamos la tabla de hash (de tamaño 11 porque es primo)
     THash *tabla = new THash(11);
     int cant = 0;
     cin >> cant;

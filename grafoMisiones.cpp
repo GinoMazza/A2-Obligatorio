@@ -118,6 +118,7 @@ public:
     // Orden topológico
     int *OT(int ciudadInicio, GrafoC *ciudades)
     {
+        cout << "entro a OT" << endl;
         int *ot = new int[V]();
         int pos = 0;
         int *grados = new int[V + 1]();
@@ -128,35 +129,36 @@ public:
         while (!s->estaVacio())
         {
             int actual = s->desencolar();
-            //cout << "Actual: " << actual << endl;
+            cout << "Actual: " << actual << endl;
             ot[pos] = actual;
             pos++;
+            cout << "mando djkstra" << endl;
             int *tiemposCiudades = ciudades->dijkstra(vertices[actual]->ciudadOrigen);
             AristaMis *ady = adyacentes(actual);
-            //cout << "Sale de adyacentes de: " << actual << endl;
+            cout << "Sale de adyacentes de: " << actual << endl;
             while (ady)
             {
                 if(ady->sigMision != 0){
-                    //cout << "En el while" << endl;
+                    cout << "En el while" << endl;
                     int dest = ady->sigMision;
-                    //cout << "Grado de: " << dest << " " << grados[dest] << endl;
+                    cout << "Grado de: " << dest << " " << grados[dest] << endl;
                     grados[dest]--;
-                    //cout << "Grado disminuido de: " << dest << " " << grados[dest] << endl;
+                    cout << "Grado disminuido de: " << dest << " " << grados[dest] << endl;
                     if (grados[dest] == 0)
                     {
-                        //cout << "Encolando: " << dest << endl;
-                        //cout << vertices[dest]->ciudadOrigen << endl;
-                        //cout << "Con tiempo: " << tiemposCiudades[vertices[dest]->ciudadOrigen] << endl;
+                        cout << "Encolando: " << dest << endl;
+                        cout << vertices[dest]->ciudadOrigen << endl;
+                        cout << "Con tiempo: " << tiemposCiudades[vertices[dest]->ciudadOrigen] << endl;
                         s->encolar(dest, tiemposCiudades[vertices[dest]->ciudadOrigen]);
-                        //cout << "Encolado: " << dest << endl;
+                        cout << "Encolado: " << dest << endl;
                     }
                 }
                 ady = ady->sig;
             }
             delete[] tiemposCiudades;
-            //cout << "Fin de adyacentes" << endl;
+            cout << "Fin de adyacentes" << endl;
         }
-        //cout << "Termina OT" << endl;
+        cout << "Termina OT" << endl;
         return ot;
     }
 };

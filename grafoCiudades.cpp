@@ -114,6 +114,7 @@ public:
 
     int *dijkstra(int ciudadOrigen)
     {
+        cout << "ESTOY DENTRO DE DIJSKTRA" << endl;
         bool *visitados = new bool[V + 1]();
         int *tiempos = initTiempos(ciudadOrigen);
         vengoDe = initVengoDe(ciudadOrigen);
@@ -138,6 +139,7 @@ public:
                 ady = ady->sig;
             }
         }
+        cout << "chau me voy de dijsktra" << endl;
         delete[] visitados;
         return tiempos;
     }

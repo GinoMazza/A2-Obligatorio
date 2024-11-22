@@ -1,23 +1,23 @@
-Ciudad inicial: Vancouver
-Vancouver -> Colonia -> Toronto -> Melbourne -> Berlin -> Beijing -> Mision: Establecer_punto_seguro - Beijing - Tiempo de viaje: 81
-Beijing -> Berlin -> Melbourne -> Mision: Asegurar_artefacto - Melbourne - Tiempo de viaje: 26
-Melbourne -> Caracas -> Mision: Acceder_a_sistemas_seguridad - Caracas - Tiempo de viaje: 13
-Caracas -> Melbourne -> Sidney -> Paysandu -> Bruselas -> Mision: Detener_ataque_cibernetico - Bruselas - Tiempo de viaje: 84
-Bruselas -> Paysandu -> Maldonado -> Toronto -> Colonia -> Vancouver -> Mision: Identificar_objetivo_secundario - Vancouver - Tiempo de viaje: 92
-Vancouver -> Helsinki -> Varsovia -> Mision: Asegurar_artefacto - Varsovia - Tiempo de viaje: 51
-Varsovia -> Helsinki -> Caracas -> Salto -> Bogota -> Mision: Anular_defensas_enemigas - Bogota - Tiempo de viaje: 63
-Bogota -> Salto -> Madrid -> Quito -> Paris -> Roma -> Mision: Recuperar_acceso_sistema_critico - Roma - Tiempo de viaje: 120
-Roma -> Paris -> Quito -> Madrid -> Mision: Identificar_objetivo_secundario - Madrid - Tiempo de viaje: 75
-Madrid -> Quito -> Paris -> Mision: Localizar_articulo_roto - Paris - Tiempo de viaje: 31
-Paris -> Quito -> Lima -> Durazno -> San_Pablo -> Mision: Proteger_testigo_vip - San_Pablo - Tiempo de viaje: 51
-San_Pablo -> Seul -> Amsterdam -> Berlin -> Hong_Kong -> Mision: Extraer_codigo_fuente - Hong_Kong - Tiempo de viaje: 31
-Hong_Kong -> Berlin -> Mision: Infiltrarse_grupo - Berlin - Tiempo de viaje: 11
-Berlin -> Amsterdam -> Seul -> San_Pablo -> El_Cairo -> Mision: Proteger_testigo_vip - El_Cairo - Tiempo de viaje: 76
-El_Cairo -> Quito -> Mision: Interceptar_comunicaciones - Quito - Tiempo de viaje: 40
-Quito -> Paris -> Copenhague -> Ciudad_del_Cabo -> Montevideo -> Mision: Recuperar_dispositivo - Montevideo - Tiempo de viaje: 92
-Montevideo -> Amsterdam -> Berlin -> Los_Angeles -> Ciudad_de_Mexico -> Mision: Desactivar_artefacto - Ciudad_de_Mexico - Tiempo de viaje: 134
-Ciudad_de_Mexico -> Lima -> Caracas -> Helsinki -> Mision: Identificar_objetivo_secundario - Helsinki - Tiempo de viaje: 111
-Helsinki -> Caracas -> Estocolmo -> Montevideo -> Mision: Proteger_emisarios - Montevideo - Tiempo de viaje: 108
-Montevideo -> Estocolmo -> Caracas -> Salto -> Punta_del_Este -> Mision: Desactivar_la_Entidad - Punta_del_Este - Tiempo de viaje: 126
+Ciudad inicial: Salto
+Salto -> Durazno -> Barcelona -> Mision: Anular_defensas_enemigas - Barcelona - Tiempo de viaje: 14
+Barcelona -> Paris -> Londres -> Mision: Infiltrarse_en_el_consejo - Londres - Tiempo de viaje: 60
+Londres -> Paris -> Barcelona -> Madrid -> Mision: Eliminar_trazabilidad_de_mision - Madrid - Tiempo de viaje: 79
+Madrid -> Berlin -> Sidney -> El_Cairo -> Colonia -> Johannesburgo -> Mision: Identificar_objetivo_secundario - Johannesburgo - Tiempo de viaje: 49
+Johannesburgo -> Colonia -> Durazno -> Barcelona -> Bruselas -> Beijing -> Mision: Obtener_coordenadas_clave - Beijing - Tiempo de viaje: 63
+Beijing -> Bruselas -> Barcelona -> Durazno -> Salto -> Mision: Establecer_contacto_confidencial - Salto - Tiempo de viaje: 41
+Salto -> Durazno -> Barcelona -> Buenos_Aires -> Atenas -> Amsterdam -> Canelones -> Mision: Proteger_emisarios - Canelones - Tiempo de viaje: 62
+Canelones -> Amsterdam -> Atenas -> Vancouver -> Santiago_de_Chile -> Mision: Asegurar_artefacto - Santiago_de_Chile - Tiempo de viaje: 58
+Santiago_de_Chile -> Vancouver -> Atenas -> Buenos_Aires -> Barcelona -> Durazno -> Salto -> Rivera -> Mision: Identificar_agente_hostil - Rivera - Tiempo de viaje: 57
+Rivera -> Salto -> Durazno -> Barcelona -> Mision: Detener_fuga_de_informacion - Barcelona - Tiempo de viaje: 39
+Barcelona -> Durazno -> Colonia -> Johannesburgo -> Ciudad_del_Cabo -> Mision: Neutralizar_amenaza - Ciudad_del_Cabo - Tiempo de viaje: 54
+Ciudad_del_Cabo -> Johannesburgo -> Colonia -> Durazno -> Mision: Interceptar_mensaje_enemigo - Durazno - Tiempo de viaje: 53
+Durazno -> Colonia -> El_Cairo -> Caracas -> Mision: Sabotear_instalacion - Caracas - Tiempo de viaje: 29
+Caracas -> El_Cairo -> Colonia -> Durazno -> Barcelona -> Buenos_Aires -> Atenas -> Mision: Rastrear_satelite_pirata - Atenas - Tiempo de viaje: 34
+Atenas -> Vancouver -> Santiago_de_Chile -> Mision: Desactivar_servidor - Santiago_de_Chile - Tiempo de viaje: 14
+Santiago_de_Chile -> Mision: Proteger_testigo_vip - Santiago_de_Chile - Tiempo de viaje: 0
+Santiago_de_Chile -> Vancouver -> Atenas -> Buenos_Aires -> Barcelona -> Durazno -> Paysandu -> Mision: Eliminar_trazabilidad_de_mision - Paysandu - Tiempo de viaje: 69
+Paysandu -> Durazno -> Barcelona -> Bruselas -> Beijing -> Lisboa -> Mision: Infiltrarse_grupo - Lisboa - Tiempo de viaje: 98
+Lisboa -> Beijing -> Bruselas -> Barcelona -> Buenos_Aires -> Atenas -> Amsterdam -> Canelones -> Mision: Proteger_emisarios - Canelones - Tiempo de viaje: 95
+Canelones -> Colonia -> Mision: Desactivar_la_Entidad - Colonia - Tiempo de viaje: 63
 Misiones ejecutadas con exito.
-Tiempo total de viaje: 1416
+Tiempo total de viaje: 1031

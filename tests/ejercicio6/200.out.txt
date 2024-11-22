@@ -1,5 +1,5 @@
-BE11, la mejor ruta es buscar equipo, Desactivar la Entidad y punto de extraccion con un costo de 75
-La otra opcion tiene un costo de 77
-Paso 1: Kuwait -> Bucarest -> Akron -> Nairobi -> Buscar equipo
-Paso 2: Nairobi -> Tokio -> Moscu -> Bratislava -> Acra -> Katmandu -> San_Pablo -> Desactivar la Entidad
-Paso 3: San_Pablo -> Katmandu -> Paso_De_Los_Toros -> Bratislava -> Moscu -> Malvin -> Johannesburgo -> Ir a Punto de extraccion
+BE11, la mejor ruta es Desactivar la Entidad, buscar equipo y punto de extraccion con un costo de 40
+La otra opcion tiene un costo de 41
+Paso 1: Paso_De_Los_Toros -> Kandahar -> Harare -> Desactivar la Entidad
+Paso 2: Harare -> Asmara -> Karachi -> Fray_Bentos -> Brasilia -> Bari -> Buscar equipo
+Paso 3: Bari -> Yeda -> Tbilisi -> Bujumbura -> Ir a Punto de extraccion

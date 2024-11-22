@@ -6,57 +6,67 @@
 
 using namespace std;
 
-class Cola{
-    private:
-    
-    struct nodoCola{
+class Cola
+{
+private:
+    struct nodoCola
+    {
         int dato;
-        nodoCola* sig;
-        nodoCola(int e) : dato(e), sig(NULL){}
+        nodoCola *sig;
+        nodoCola(int e) : dato(e), sig(NULL) {}
     };
 
-    nodoCola* principio;    
-    nodoCola* ultimo;
+    nodoCola *principio;
+    nodoCola *ultimo;
     int cantElementos;
 
-    public:
-
-    Cola() {
+public:
+    Cola()
+    {
         principio = ultimo = NULL;
         cantElementos = 0;
     }
 
-    ~Cola() {
-        while (!esVacia()) desencolar();
+    ~Cola()
+    {
+        while (!esVacia())
+            desencolar();
         delete principio;
         delete ultimo;
     }
 
-    void encolar(int e) {
-        nodoCola* nuevo = new nodoCola(e);
-        if (esVacia()) principio = nuevo;
-        else ultimo->sig = nuevo;
+    void encolar(int e)
+    {
+        nodoCola *nuevo = new nodoCola(e);
+        if (esVacia())
+            principio = nuevo;
+        else
+            ultimo->sig = nuevo;
         ultimo = nuevo;
         cantElementos++;
     }
 
-    int desencolar() {
-        if (esVacia()) return -1;
+    int desencolar()
+    {
+        if (esVacia())
+            return -1;
         int ret = principio->dato;
-        nodoCola* aBorrar = principio;
+        nodoCola *aBorrar = principio;
         principio = principio->sig;
-        if (!principio) ultimo = NULL;
+        if (!principio)
+            ultimo = NULL;
         delete aBorrar;
         cantElementos--;
         return ret;
     }
 
-    bool esVacia() {
+    bool esVacia()
+    {
         return cantElementos == 0;
     }
 
-    int cantidadElementos() {
+    int cantidadElementos()
+    {
         return cantElementos;
     }
 };
- 

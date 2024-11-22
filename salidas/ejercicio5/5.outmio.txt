@@ -1,8 +1,66 @@
+entro a OT
+ESTOY DENTRO DE DIJSKTRA
+chau me voy de dijsktra
+Actual: 1
+mando djkstra
+ESTOY DENTRO DE DIJSKTRA
+chau me voy de dijsktra
+Sale de adyacentes de: 1
+En el while
+Grado de: 2 1
+Grado disminuido de: 2 0
+Encolando: 2
+2
+Con tiempo: 350
+Encolado: 2
+En el while
+Grado de: 5 4
+Grado disminuido de: 5 3
+Fin de adyacentes
+Actual: 3
+mando djkstra
+ESTOY DENTRO DE DIJSKTRA
+chau me voy de dijsktra
+Sale de adyacentes de: 3
+En el while
+Grado de: 4 2
+Grado disminuido de: 4 1
+En el while
+Grado de: 5 3
+Grado disminuido de: 5 2
+Fin de adyacentes
+Termina OT
 Ciudad inicial: Punta_Del_Este
-Punta_Del_Este -> Montevideo -> Mision: Recuperar_llave - Montevideo - Tiempo de viaje: 10
-Montevideo -> New_York -> Mision: Desactivar_servidor - New_York - Tiempo de viaje: 350
-New_York -> Roma -> Mision: Obtener_informacion_confidencial - Roma - Tiempo de viaje: 500
-Roma -> New_York -> Tokio -> Mision: Extraer_codigo_fuente - Tokio - Tiempo de viaje: 1400
-Tokio -> New_York -> Roma -> Londres -> Mision: Desactivar_la_Entidad - Londres - Tiempo de viaje: 1700
-Misiones ejecutadas con exito.
-Tiempo total de viaje: 3960
+5
+for en posicion 0
+entro a dijkstra
+ESTOY DENTRO DE DIJSKTRA
+chau me voy de dijsktra
+agarro vengode
+orden misones
+ciudad destino
+entro a getorigen
+salgo de getorigen, voy a tiempos
+imprimo camino
+Punta_Del_Este -> Montevideo -> salgo de imprimir camino
+Mision: Recuperar_llave - Montevideo - Tiempo de viaje: 10
+for en posicion 1
+entro a dijkstra
+ESTOY DENTRO DE DIJSKTRA
+chau me voy de dijsktra
+agarro vengode
+orden misones
+ciudad destino
+entro a getorigen
+salgo de getorigen, voy a tiempos
+imprimo camino
+Montevideo -> Roma -> salgo de imprimir camino
+Mision: Obtener_informacion_confidencial - Roma - Tiempo de viaje: 600
+for en posicion 2
+entro a dijkstra
+ESTOY DENTRO DE DIJSKTRA
+chau me voy de dijsktra
+agarro vengode
+orden misones
+ciudad destino
+entro a getorigen

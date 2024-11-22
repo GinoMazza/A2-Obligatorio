@@ -91,6 +91,7 @@ int main()
         imprimirCamino(nombreCiudades, vengoDeTP, idPoint);
         cout << "Ir a Punto de extraccion" << endl;
     }
+
     delete[] nombreCiudades;
     delete[] costos;
     delete[] vengoDeTE;
@@ -99,4 +100,6 @@ int main()
     delete[] vengoDeSE;
     delete[] vengoDeET; 
     delete[] vengoDeTP;
+
+    return 0;
 }

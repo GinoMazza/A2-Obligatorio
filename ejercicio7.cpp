@@ -6,7 +6,7 @@
 
 using namespace std;
 
-// Función que verifica si es posible repartir las canciones entre los estudiantes sin superar el tiempo maximo
+// Función que verifica si es posible repartir las canciones entre los estudiantes sin superar el tiempo maximo ni la cantidad de alumnos necesarios
 bool repartirNoSuperaMax(int *duraciones, int cantCanciones, int cantEstudiantes, int tiempoMaximo, int *&posicionesInicio, int *&posicionesFinal, int *&tiemposTotales)
 {
     int estudiantes = 1; 
@@ -25,7 +25,7 @@ bool repartirNoSuperaMax(int *duraciones, int cantCanciones, int cantEstudiantes
             posicionesInicio[estudiantes] = i;          
             tiempoActual = duracionActual;              
 
-            // Si necesitamos más estudiantes de los permitidos, no es posible
+            // Si necesitamos más estudiantes de los permitidos para repartir
             if (estudiantes > cantEstudiantes)
             {
                 return false;
@@ -71,7 +71,7 @@ int main()
     int *posicionesFinal = new int[cantEstudiantes + 1]();
     int *tiemposTotales = new int[cantEstudiantes + 1]();
 
-    // Obtenemos la duración mayor del vector
+    // Obtenemos la duración mayor del vector, que es la minima duracion para escuchar todas las canciones en el mejor caso
     for (int i = 1; i <= cantCanciones; i++)
     {
         if (duraciones[i] > duracionMinima)
@@ -91,6 +91,7 @@ int main()
     // Búsqueda binaria
     while (duracionMinima <= duracionTotal)
     {
+        // Calculamos el medio
         int medio = (duracionMinima + duracionTotal) / 2;
 
         for (int i = 1; i <= cantEstudiantes; i++)
@@ -101,10 +102,11 @@ int main()
         }
         posicionesInicio[1] = 1;
 
+        // Si es posible repartir las canciones entre los estudiantes sin superar el tiempo máximo
         if (repartirNoSuperaMax(duraciones, cantCanciones, cantEstudiantes, medio, posicionesInicio, posicionesFinal, tiemposTotales))
         {
             resultado = medio;
-            duracionTotal = medio - 1; // Intentamos buscar un tiempo menor
+            duracionTotal = medio - 1; // Intentamos buscar un tiempo menor (sabemos que con medio funciona sin ser duracionTotal)
         }
         else
         {
@@ -112,6 +114,7 @@ int main()
         }
     }
 
+    // Imprimimos resultados
     for (int i = 1; i <= cantEstudiantes; i++)
     {
         if (posicionesFinal[i - 1] != cantCanciones && tiemposTotales[i] != 0)
