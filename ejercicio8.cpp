@@ -43,6 +43,96 @@ double distanciaEfectiva(Ciudad *ciudad1, Ciudad *ciudad2)
     return distancia;
 }
 
+// Merge para el eje recibido
+void merge(Ciudad **ciudades, int inicio, int medio, int fin, char eje)
+{
+    int n1 = medio - inicio + 1;
+    int n2 = fin - medio;
+
+    // Arreglos temporales
+    Ciudad **izq = new Ciudad *[n1];
+    Ciudad **der = new Ciudad *[n2];
+
+    // Copiar datos
+    for (int i = 0; i < n1; i++)
+        izq[i] = ciudades[inicio + i];
+    for (int j = 0; j < n2; j++)
+        der[j] = ciudades[medio + 1 + j];
+
+    // Combinar los arreglos ordenados
+    int i = 0, j = 0, k = inicio;
+    while (i < n1 && j < n2)
+    {
+        if (eje == 'x')
+        {
+            if (izq[i]->x <= der[j]->x)
+            {
+                ciudades[k] = izq[i];
+                i++;
+            }
+            else
+            {
+                ciudades[k] = der[j];
+                j++;
+            }
+        }
+        else if (eje == 'y')
+        {
+            if (izq[i]->y <= der[j]->y)
+            {
+                ciudades[k] = izq[i];
+                i++;
+            }
+            else
+            {
+                ciudades[k] = der[j];
+                j++;
+            }
+        }
+        k++;
+    }
+
+    // Copiar los elementos restantes
+    while (i < n1)
+    {
+        ciudades[k] = izq[i];
+        i++;
+        k++;
+    }
+    while (j < n2)
+    {
+        ciudades[k] = der[j];
+        j++;
+        k++;
+    }
+
+    delete[] izq;
+    delete[] der;
+}
+
+// Mergesort para ordenar por coordenadas del eje recibido (ascendentemente)
+void mergeSort(Ciudad **ciudades, int inicio, int fin, char eje)
+{
+    if (inicio < fin)
+    {
+        int medio = inicio + (fin - inicio) / 2;
+
+        // Ordenar las mitades
+        mergeSort(ciudades, inicio, medio, eje);
+        mergeSort(ciudades, medio + 1, fin, eje);
+
+        // Combinar
+        if (eje == 'x')
+        {
+            merge(ciudades, inicio, medio, fin, eje);
+        }
+        else if (eje == 'y')
+        {
+            merge(ciudades, inicio, medio, fin, eje);
+        }
+    }
+}
+
 // Función para construir franja de ciudades
 Ciudad **construirFranja(Ciudad **ciudades, int inicio, int fin, int m, double menorDistancia, int &tam)
 {
@@ -64,7 +154,6 @@ ParCiudades *compararPares(ParCiudades *par1, ParCiudades *par2)
 {
     double distanciaPar1 = distanciaEfectiva(par1->ciudad1, par1->ciudad2);
     double distanciaPar2 = distanciaEfectiva(par2->ciudad1, par2->ciudad2);
-
 
     if (distanciaPar1 < distanciaPar2)
     {
@@ -91,21 +180,10 @@ ParCiudades *compararPares(ParCiudades *par1, ParCiudades *par2)
 
 ParCiudades *verificarFranja(Ciudad **franja, int cantCiudades, int menorDistancia, int inicio)
 {
-    // Ordenamos la franja por coordenadas en y (ascendente)
-    for (int i = 0; i < cantCiudades; i++)
-    {
-        for (int j = i + 1; j < cantCiudades; j++)
-        {
-            if (franja[i]->y > franja[j]->y)
-            {
-                Ciudad *aux = franja[i];
-                franja[i] = franja[j];
-                franja[j] = aux;
-            }
-        }
-    }
+    // Ordenar el vector de ciudades por coordenada en y (ascendente)
+    mergeSort(franja, 0, cantCiudades - 1, 'y');
 
-    ParCiudades *parRetorno = new ParCiudades(franja[inicio], franja[inicio + 1]);
+    ParCiudades *parRetorno = new ParCiudades(franja[0], franja[1]);
 
     // Buscar el mejor par dentro de la franja
     for (int i = 0; i < cantCiudades; i++)
@@ -116,7 +194,6 @@ ParCiudades *verificarFranja(Ciudad **franja, int cantCiudades, int menorDistanc
             parRetorno = compararPares(parRetorno, parActual);
         }
     }
-
     return parRetorno;
 }
 
@@ -165,7 +242,7 @@ ParCiudades *mejorParDAC(Ciudad **ciudades, int inicio, int fin)
         mejorPar = compararPares(mejorPar, mejorParFranja);
     }
 
-    delete[] franja; 
+    delete[] franja;
 
     return mejorPar;
 }
@@ -174,21 +251,10 @@ ParCiudades *mejorParDAC(Ciudad **ciudades, int inicio, int fin)
 ParCiudades *mejorPar(Ciudad **ciudades, int cantCiudades)
 {
     // Ordenar el vector de ciudades por coordenada en x (ascendente)
-    for (int i = 0; i < cantCiudades - 1; i++)
-    {
-        for (int j = i + 1; j < cantCiudades; j++)
-        {
-            if (ciudades[i]->x > ciudades[j]->x)
-            {
-                Ciudad *aux = ciudades[i];
-                ciudades[i] = ciudades[j];
-                ciudades[j] = aux;
-            }
-        }
-    }
+    mergeSort(ciudades, 0, cantCiudades - 1, 'x');
 
     // LLamamos a la función de DyC
-    return mejorParDAC(ciudades, 0, cantCiudades); 
+    return mejorParDAC(ciudades, 0, cantCiudades);
 }
 
 int main()
@@ -232,3 +298,4 @@ int main()
     return 0;
 }
 
+//? GUARDAMOS LA DISTANCIA EN EL PAR DE CIUDADES?
