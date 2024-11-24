@@ -106,6 +106,7 @@ int main()
             else if (confianza == "Baja")
                 valoracion -= 5;
         }
+        
         // Guardamos datos de cada jugador
         valoraciones[i] = valoracion;
         salarios[i] = costo;

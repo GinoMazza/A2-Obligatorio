@@ -91,6 +91,8 @@ bool noPuedoSuperar(int tamJardin, int filaActual, int columnaActual, int maxFlo
     int celdasTotales = tamJardin * tamJardin;
     int celdasVisitadas = filaActual * tamJardin + columnaActual;
     int celdasRestantes = celdasTotales - celdasVisitadas;
+
+    // Se que no puedo superarlo
     if (floresPuestasActuales + celdasRestantes <= maxFloresPuestas)
     {
         return true;
@@ -130,8 +132,11 @@ void floresBT(int filaActual, int columnaActual, int cantFloresDistintas, Flor *
             // Hay que verificar que pueda usarse la flor
             if (puedoPonerFlor(filaActual, columnaActual, florActual, flores, jardin, tamJardin))
             {
+                // Ponemos flor, mandamos recursion y sacamos flor
                 ponerFlor(filaActual, columnaActual, florActual, flores, jardin, floresPuestasActuales);
+
                 floresBT(filaNueva, columnaNueva, cantFloresDistintas, flores, tamJardin, jardin, floresPuestasActuales, maxFloresPuestas);
+
                 sacarFlor(filaActual, columnaActual, florActual, flores, jardin, floresPuestasActuales);
             }
         }
@@ -169,6 +174,7 @@ int main()
 
     int maximasFlores = 0;
 
+    // Llamamos a la funcion de backtracking
     floresBT(0, 0, cantFloresDistintas, flores, tamJardin, jardin, 0, maximasFlores);
 
     cout << maximasFlores << endl;
