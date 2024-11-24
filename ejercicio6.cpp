@@ -7,6 +7,7 @@
 
 using namespace std;
 
+// Funcion para actualizar costos
 int *actualizarCostos(GrafoC *ciudades, int &costoTotal, int *&costos, int origen, int destino)
 {
     costos = ciudades->dijkstra(origen);
@@ -15,6 +16,7 @@ int *actualizarCostos(GrafoC *ciudades, int &costoTotal, int *&costos, int orige
     return ciudades->getVengoDe();
 }
 
+// Funcion para imprimir
 void imprimirCamino(string *nombreCiudades, int *vengoDe, int destino)
 {
     if (vengoDe[destino] != 0)
@@ -28,6 +30,8 @@ int main()
 {
     int cantCiudades, idStart, idEntity, idTeam, idPoint, cantAristas;
     cin >> cantCiudades;
+
+    // Inicializamos vector de nombres de ciudades y lo cargamos
     string *nombreCiudades = new string[cantCiudades + 1];
     for (int i = 1; i <= cantCiudades; i++)
     {
@@ -36,9 +40,16 @@ int main()
         cin >> id >> nombre;
         nombreCiudades[id] = nombre;
     }
+
     cin >> idStart >> idEntity >> idTeam >> idPoint >> cantAristas;
+
+    // Inicializamos grafo para team
     GrafoC *ciudadesT = new GrafoC(cantCiudades, false, true);
+
+    // Inicializamos grafo para entity
     GrafoC *ciudadesE = new GrafoC(cantCiudades, false, true);
+
+    // Cargamos aristas en ambos grafos
     for (int i = 1; i <= cantAristas; i++)
     {
         int idOrigen, idDestino, costo;
@@ -98,7 +109,7 @@ int main()
     delete[] vengoDeEP;
     delete[] vengoDeST;
     delete[] vengoDeSE;
-    delete[] vengoDeET; 
+    delete[] vengoDeET;
     delete[] vengoDeTP;
 
     return 0;

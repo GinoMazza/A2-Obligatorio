@@ -8,6 +8,7 @@
 
 using namespace std;
 
+// Struct para las aristas
 struct Arista
 {
     int origen;
@@ -26,6 +27,7 @@ private:
     bool ponderado;
     int *vengoDe;
 
+    // Funcion para inicializar el vector tiempos
     int *initTiempos(int origen)
     {
         int *tiempos = new int[V + 1];
@@ -39,6 +41,7 @@ private:
         return tiempos;
     }
 
+    // Funcion para inicializar el vector vengoDe
     int *initVengoDe(int origen)
     {
         int *nuevo = new int[V + 1];
@@ -53,6 +56,7 @@ private:
     }
 
 public:
+    // Constructor
     GrafoC(int cantV, bool esDirigido, bool esPonderado)
     {
         vertices = new Arista *[cantV + 1]();
@@ -62,6 +66,7 @@ public:
         vengoDe = new int[cantV + 1]();
     }
 
+    // Destructor
     ~GrafoC()
     {
         for (int i = 1; i <= V; i++)
@@ -78,21 +83,25 @@ public:
         delete[] vengoDe;
     }
 
+    // Funcion para obtener la cantidad de vertices
     int getV()
     {
         return V;
     }
 
+    // Funcion para obtener vengoDe
     int *getVengoDe()
     {
         return vengoDe;
     }
 
+    // Funcion para obtener la lista de adyacentes al vertice recibido 
     Arista *adyacentes(int vertice)
     {
         return vertices[vertice];
     }
 
+    // Funcion para agregar una arista al grafo
     void agregarArista(int o, int dest, int tiempoViaje)
     {
         Arista *nuevaArista = new Arista();
@@ -101,6 +110,8 @@ public:
         nuevaArista->tiempo = tiempoViaje;
         nuevaArista->sig = vertices[o];
         vertices[o] = nuevaArista;
+        
+        // Si el grafo no es dirigido agregamos la arista inversa
         if (!dirigido)
         {
             Arista *inversa = new Arista();
@@ -112,24 +123,40 @@ public:
         }
     }
 
+    // Funcion para aplicar dijkstra desde la ciudad recibida (ciudad origen)
     int *dijkstra(int ciudadOrigen)
     {
-        cout << "ESTOY DENTRO DE DIJSKTRA" << endl;
+        // Inicializamos vectores de visitados, tiempos y vengoDe
         bool *visitados = new bool[V + 1]();
         int *tiempos = initTiempos(ciudadOrigen);
         vengoDe = initVengoDe(ciudadOrigen);
+
+        // Inicializamos cola de prioridad
         CP *cp = new CP(V * V);
+
+        // Encolamos la ciudad de origen
         cp->encolar(ciudadOrigen, 0);
+
+        // Marcamos la ciudad de origen como visitada
         visitados[ciudadOrigen] = true;
+
+        // Mientras que la cola de prioridad no este vacia
         while (!cp->estaVacia())
         {
+            // Desencolamos el vertice actual
             int actual = cp->desencolar();
+
+            // Lo marcamos como visitado
             visitados[actual] = true;
+
+            // Obtenemos sus adyacentes y los recorremos
             Arista *ady = adyacentes(actual);
             while (ady)
             {
                 int dest = ady->destino;
                 int tiempoViaje = ady->tiempo;
+
+                // Si el tiempo es mejor, lo actualizamos, actualizamos vengoDe y lo encolamos
                 if (!visitados[dest] && tiempos[dest] > tiempos[actual] + tiempoViaje)
                 {
                     tiempos[dest] = tiempos[actual] + tiempoViaje;
@@ -139,13 +166,15 @@ public:
                 ady = ady->sig;
             }
         }
-        cout << "chau me voy de dijsktra" << endl;
+
         delete[] visitados;
+
         return tiempos;
     }
 
-    //* Funciones para ejercicio6
+    // FUNCION PARA EL EJERCICIO 6
 
+    // Funcion que duplica el costo de una arista
     void duplicarCamino(int origen, int destino)
     {
         if (vengoDe[destino] != 0)
@@ -172,11 +201,12 @@ public:
                 }
                 a2 = a2->sig;
             }
+
             delete[] a1;
             delete[] a2;
+
             duplicarCamino(origen, vengoDe[destino]);
         }
     }
-
-    //* Fin funciones para ejercicio6
+    //
 };

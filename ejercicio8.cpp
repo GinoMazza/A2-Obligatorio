@@ -22,7 +22,8 @@ struct ParCiudades
 {
     Ciudad *ciudad1;
     Ciudad *ciudad2;
-    ParCiudades(Ciudad *c1, Ciudad *c2) : ciudad1(c1), ciudad2(c2) {}
+    double distancia;
+    ParCiudades(Ciudad *c1, Ciudad *c2, double dist) : ciudad1(c1), ciudad2(c2), distancia(dist) {}
     ParCiudades() {}
 };
 
@@ -49,20 +50,24 @@ void merge(Ciudad **ciudades, int inicio, int medio, int fin, char eje)
     int n1 = medio - inicio + 1;
     int n2 = fin - medio;
 
-    // Arreglos temporales
+    // Vector para la izquierda
     Ciudad **izq = new Ciudad *[n1];
+
+    // Vector para la derecha
     Ciudad **der = new Ciudad *[n2];
 
-    // Copiar datos
+    // Copiamos datos
     for (int i = 0; i < n1; i++)
         izq[i] = ciudades[inicio + i];
     for (int j = 0; j < n2; j++)
         der[j] = ciudades[medio + 1 + j];
 
-    // Combinar los arreglos ordenados
+    // Combinamos los arreglos ordenados
     int i = 0, j = 0, k = inicio;
+
     while (i < n1 && j < n2)
     {
+        // Comparamos en x
         if (eje == 'x')
         {
             if (izq[i]->x <= der[j]->x)
@@ -76,6 +81,7 @@ void merge(Ciudad **ciudades, int inicio, int medio, int fin, char eje)
                 j++;
             }
         }
+        // Comparamos en y
         else if (eje == 'y')
         {
             if (izq[i]->y <= der[j]->y)
@@ -92,7 +98,7 @@ void merge(Ciudad **ciudades, int inicio, int medio, int fin, char eje)
         k++;
     }
 
-    // Copiar los elementos restantes
+    // Copiamos elementos restantes
     while (i < n1)
     {
         ciudades[k] = izq[i];
@@ -106,6 +112,7 @@ void merge(Ciudad **ciudades, int inicio, int medio, int fin, char eje)
         k++;
     }
 
+    // Liberamos memoria
     delete[] izq;
     delete[] der;
 }
@@ -117,19 +124,12 @@ void mergeSort(Ciudad **ciudades, int inicio, int fin, char eje)
     {
         int medio = inicio + (fin - inicio) / 2;
 
-        // Ordenar las mitades
+        // Ordenamos las mitades
         mergeSort(ciudades, inicio, medio, eje);
         mergeSort(ciudades, medio + 1, fin, eje);
 
-        // Combinar
-        if (eje == 'x')
-        {
-            merge(ciudades, inicio, medio, fin, eje);
-        }
-        else if (eje == 'y')
-        {
-            merge(ciudades, inicio, medio, fin, eje);
-        }
+        // Combinamos
+        merge(ciudades, inicio, medio, fin, eje);
     }
 }
 
@@ -152,20 +152,17 @@ Ciudad **construirFranja(Ciudad **ciudades, int inicio, int fin, int m, double m
 // Devuelve el par de ciudad con menor distancia efectiva
 ParCiudades *compararPares(ParCiudades *par1, ParCiudades *par2)
 {
-    double distanciaPar1 = distanciaEfectiva(par1->ciudad1, par1->ciudad2);
-    double distanciaPar2 = distanciaEfectiva(par2->ciudad1, par2->ciudad2);
-
-    if (distanciaPar1 < distanciaPar2)
+    if (par1->distancia < par2->distancia)
     {
         return par1;
     }
-    else if (distanciaPar1 > distanciaPar2)
+    else if (par1->distancia > par2->distancia)
     {
         return par2;
     }
     else
     {
-        // Si las distancias son iguales, comparar por la suma de poblaciones
+        // Si las distancias son iguales, comparamos por la suma de poblaciones
         if ((par1->ciudad1->poblacion + par1->ciudad2->poblacion) >
             (par2->ciudad1->poblacion + par2->ciudad2->poblacion))
         {
@@ -180,17 +177,19 @@ ParCiudades *compararPares(ParCiudades *par1, ParCiudades *par2)
 
 ParCiudades *verificarFranja(Ciudad **franja, int cantCiudades, int menorDistancia, int inicio)
 {
-    // Ordenar el vector de ciudades por coordenada en y (ascendente)
+    // Ordenamos el vector de ciudades por coordenada en y (ascendente)
     mergeSort(franja, 0, cantCiudades - 1, 'y');
 
-    ParCiudades *parRetorno = new ParCiudades(franja[0], franja[1]);
+    double distancia = distanciaEfectiva(franja[0], franja[1]);
+    ParCiudades *parRetorno = new ParCiudades(franja[0], franja[1], distancia);
 
-    // Buscar el mejor par dentro de la franja
+    // Buscamos el mejor par dentro de la franja
     for (int i = 0; i < cantCiudades; i++)
     {
         for (int j = i + 1; j < cantCiudades && franja[j]->y - franja[i]->y < menorDistancia; j++)
         {
-            ParCiudades *parActual = new ParCiudades(franja[i], franja[j]);
+            double distancia = distanciaEfectiva(franja[i], franja[j]);
+            ParCiudades *parActual = new ParCiudades(franja[i], franja[j], distancia);
             parRetorno = compararPares(parRetorno, parActual);
         }
     }
@@ -202,15 +201,19 @@ ParCiudades *mejorParDAC(Ciudad **ciudades, int inicio, int fin)
     // CB: 2 ciudades, retorna el par
     if (fin - inicio == 1)
     {
-        return new ParCiudades(ciudades[inicio], ciudades[fin]);
+        double distancia = distanciaEfectiva(ciudades[inicio], ciudades[fin]);
+        return new ParCiudades(ciudades[inicio], ciudades[fin], distancia);
     }
 
     // CB: 3 ciudades, retorna el par con menor distancia efectiva (comparando todas las distancias)
     if (fin - inicio == 2)
     {
-        ParCiudades *par1 = new ParCiudades(ciudades[inicio], ciudades[inicio + 1]);
-        ParCiudades *par2 = new ParCiudades(ciudades[inicio], ciudades[inicio + 2]);
-        ParCiudades *par3 = new ParCiudades(ciudades[inicio + 1], ciudades[inicio + 2]);
+        double distancia1 = distanciaEfectiva(ciudades[inicio], ciudades[inicio + 1]);
+        double distancia2 = distanciaEfectiva(ciudades[inicio], ciudades[inicio + 2]);
+        double distancia3 = distanciaEfectiva(ciudades[inicio + 1], ciudades[inicio + 2]);
+        ParCiudades *par1 = new ParCiudades(ciudades[inicio], ciudades[inicio + 1], distancia1);
+        ParCiudades *par2 = new ParCiudades(ciudades[inicio], ciudades[inicio + 2], distancia2);
+        ParCiudades *par3 = new ParCiudades(ciudades[inicio + 1], ciudades[inicio + 2], distancia3);
         ParCiudades *mejorPar = compararPares(par1, par2);
         mejorPar = compararPares(mejorPar, par3);
         return mejorPar;
@@ -229,7 +232,7 @@ ParCiudades *mejorParDAC(Ciudad **ciudades, int inicio, int fin)
     ParCiudades *mejorPar = compararPares(parDer, parIzq);
 
     // Obtenemos la distancia efectiva entre las ciudades del mejor par
-    double menorDistancia = distanciaEfectiva(mejorPar->ciudad1, mejorPar->ciudad2);
+    double menorDistancia = mejorPar->distancia;
 
     // Construimos la franja de ciudades cercanas a la línea media
     int tamFranja = 0;
@@ -297,5 +300,3 @@ int main()
 
     return 0;
 }
-
-//? GUARDAMOS LA DISTANCIA EN EL PAR DE CIUDADES?

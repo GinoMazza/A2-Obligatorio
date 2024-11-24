@@ -8,6 +8,7 @@
 
 using namespace std;
 
+// Struct para aristas
 struct AristaMis
 {
     int ciudadOrigen;
@@ -50,6 +51,7 @@ private:
     }
 
 public:
+    // Constructor
     GrafoM(int cantV, bool esDirigido, bool esPonderado)
     {
         vertices = new AristaMis *[cantV + 1]();
@@ -58,6 +60,7 @@ public:
         ponderado = esPonderado;
     }
 
+    // Destructor
     ~GrafoM()
     {
         for (int i = 1; i <= V; i++)
@@ -73,21 +76,25 @@ public:
         delete[] vertices;
     }
 
+    // Funcion para obtener la cantidad de vertices
     int getV()
     {
         return V;
     }
 
+    // Funcion para obtener la ciudad de origen de la mision (vertice recibido)
     int getCiudadOrigen(int vertice)
     {
         return vertices[vertice]->ciudadOrigen;
     }
 
+    // Funcion para obtener la lista de adyacentes al vertice recibido
     AristaMis *adyacentes(int vertice)
     {
         return vertices[vertice];
     }
 
+    // Funcion para obtener la ciudad de destino de la mision (vertice recibido)
     int getCiudadDestino(int vertice)
     {
         AristaMis *ady = adyacentes(vertice);
@@ -96,6 +103,7 @@ public:
         return ady->ciudadOrigen;
     }
 
+    // Funcion para agregar una arista al grafo
     void agregarArista(int id, int ciudad, int siguiente, int peso)
     {
         AristaMis *nuevaArista = new AristaMis();
@@ -104,6 +112,8 @@ public:
         nuevaArista->tiempo = peso;
         nuevaArista->sig = vertices[id];
         vertices[id] = nuevaArista;
+
+        // Si el grafo no es dirigido agregamos la arista inversa
         if (!dirigido)
         {
             AristaMis *inversa = new AristaMis();
@@ -118,47 +128,60 @@ public:
     // Orden topológico
     int *OT(int ciudadInicio, GrafoC *ciudades)
     {
-        cout << "entro a OT" << endl;
+        // Inicializamos vector de orden topológico
         int *ot = new int[V]();
-        int pos = 0;
+
+        // Inicializamos vector grados
         int *grados = new int[V + 1]();
+
+        // Cargamos grados de entrada de cada vector
         calcularGrados(grados);
+
+        // Inicializamos la cola de prioridad extendida
         CPEGrafo *s = new CPEGrafo(V + 1);
-        int *tiempoInicial = ciudades->dijkstra(ciudadInicio); // Dijkstra desde el origen recibido a todos los demás nodos
+
+        // Dijkstra desde el origen recibido a todos los demás nodos
+        int *tiempoInicial = ciudades->dijkstra(ciudadInicio);
+
+        // Encolamos en la CPE los vertices con grado de entrada 0
         encolarGradoCero(s, grados, tiempoInicial);
+
+        int pos = 0;
         while (!s->estaVacio())
         {
+            // Desencolamos el vertice actual (sabemos que tiene grado de entrada 0)
             int actual = s->desencolar();
-            cout << "Actual: " << actual << endl;
+
+            // Lo cargamos en el OT
             ot[pos] = actual;
+
             pos++;
-            cout << "mando djkstra" << endl;
+
+            // Obtenemos los tiempos aplicando dijkstra desde el vertice actual
             int *tiemposCiudades = ciudades->dijkstra(vertices[actual]->ciudadOrigen);
+
+            // Obtenemos y recorremos los adyacentes del vertice actual
             AristaMis *ady = adyacentes(actual);
-            cout << "Sale de adyacentes de: " << actual << endl;
             while (ady)
             {
-                if(ady->sigMision != 0){
-                    cout << "En el while" << endl;
+                if (ady->sigMision != 0)
+                {
+                    // Obtenemos destino
                     int dest = ady->sigMision;
-                    cout << "Grado de: " << dest << " " << grados[dest] << endl;
+
+                    // Disminuimos grado de entrada del destino
                     grados[dest]--;
-                    cout << "Grado disminuido de: " << dest << " " << grados[dest] << endl;
+
+                    // Si tiene grado de entrada 0, encolamos
                     if (grados[dest] == 0)
                     {
-                        cout << "Encolando: " << dest << endl;
-                        cout << vertices[dest]->ciudadOrigen << endl;
-                        cout << "Con tiempo: " << tiemposCiudades[vertices[dest]->ciudadOrigen] << endl;
                         s->encolar(dest, tiemposCiudades[vertices[dest]->ciudadOrigen]);
-                        cout << "Encolado: " << dest << endl;
                     }
                 }
                 ady = ady->sig;
             }
             delete[] tiemposCiudades;
-            cout << "Fin de adyacentes" << endl;
         }
-        cout << "Termina OT" << endl;
         return ot;
     }
 };

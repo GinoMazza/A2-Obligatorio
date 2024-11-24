@@ -47,6 +47,7 @@ private:
         return (pos * 2) + 1;
     }
 
+    // Se actualiza el tiempo del nodo (flota o se hunde)
     void actualizar(int id, int tiempo)
     {
         int pos = posiciones[id];
@@ -55,6 +56,7 @@ private:
         hundir(pos);
     }
 
+    // Funcion que devuelve true si hay que intercambiar los nodos
     bool comparar(int posPadre, int pos)
     {
         bool intercambia = false;
@@ -68,21 +70,30 @@ private:
         return intercambia;
     }
 
+    // Se intercambian los nodos
     void intercambiar(int posPadre, int pos)
     {
-        int aux1 = posiciones[posPadre]; // intercambiar en el vector
+        // Intercambiamos en el vector
+        int aux1 = posiciones[posPadre];
         posiciones[posPadre] = posiciones[pos];
         posiciones[pos] = aux1;
-        nodoHeap *aux2 = vec[posPadre]; // intercambiar en el heap
+
+        // Intercambiamos en el heap
+        nodoHeap *aux2 = vec[posPadre];
         vec[posPadre] = vec[pos];
         vec[pos] = aux2;
     }
 
+    // Funcion que flota el nodo recibido
     void flotar(int pos)
     {
+        // CB
         if (pos == 1)
-            return; // CB
+            return;
+
         int posPadre = padre(pos);
+
+        // Si da true, hay que intercambiar
         if (comparar(posPadre, pos))
         {
             intercambiar(posPadre, pos);
@@ -90,12 +101,16 @@ private:
         }
     }
 
+    // Funcion que hunde el nodo recibido
     void hundir(int pos)
     {
         int izq = hijoIzq(pos);
         int der = hijoDer(pos);
+
+        // CB
         if (izq >= primeroLibre && der >= primeroLibre)
-            return; // CB
+            return;
+
         int hijoMenorPrioridad = izq;
         if (der < primeroLibre)
         {
@@ -125,6 +140,7 @@ private:
     }
 
 public:
+    // Constructor
     CPEGrafo(int cap)
     {
         vec = new nodoHeap *[cap + 1]();
@@ -133,6 +149,7 @@ public:
         primeroLibre = 1;
     }
 
+    // Destructor
     ~CPEGrafo()
     {
         destruir();
@@ -172,6 +189,7 @@ public:
         int ret = peek();
         if (!estaVacio())
         {
+            posiciones[ret] = 0;
             intercambiar(1, primeroLibre - 1);
             delete vec[primeroLibre - 1];
             vec[primeroLibre - 1] = NULL;
