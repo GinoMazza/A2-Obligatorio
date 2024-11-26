@@ -1,5 +1,0 @@
-BE11, la mejor ruta es Desactivar la Entidad, buscar equipo y punto de extraccion con un costo de 145
-La otra opcion tiene un costo de 169
-Paso 1: Roma -> Paysandu -> Desactivar la Entidad
-Paso 2: Paysandu -> Durazno -> Punta_del_Este -> Buscar equipo
-Paso 3: Punta_del_Este -> San_Pablo -> Maldonado -> Rivera -> Canelones -> Colonia -> Ir a Punto de extraccion

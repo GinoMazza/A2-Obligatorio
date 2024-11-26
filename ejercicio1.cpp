@@ -1,8 +1,7 @@
 #include <cassert>
-#include <string>
+#include <cstring>
 #include <iostream>
-#include <limits>
-#include "ejercicio1/avl.cpp"
+#include "avl.cpp"
 
 using namespace std;
 

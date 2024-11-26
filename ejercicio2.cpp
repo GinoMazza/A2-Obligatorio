@@ -1,8 +1,7 @@
 #include <cassert>
-#include <string>
+#include <cstring>
 #include <iostream>
-#include <limits>
-#include "ejercicio2/hash.cpp"
+#include "hash.cpp"
 
 using namespace std;
 

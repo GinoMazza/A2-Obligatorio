@@ -1,8 +1,7 @@
 #include <cassert>
-#include <string>
+#include <cstring>
 #include <iostream>
-#include <limits>
-#include "ejercicio3/heap.cpp"
+#include "heap.cpp"
 
 using namespace std;
 

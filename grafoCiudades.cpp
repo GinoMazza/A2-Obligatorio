@@ -1,8 +1,3 @@
-#include <iostream>
-#include <string>
-#include <cstring>
-#include <cassert>
-#include <limits>
 #include <climits>
 #include "cp.cpp"
 
@@ -95,7 +90,7 @@ public:
         return vengoDe;
     }
 
-    // Funcion para obtener la lista de adyacentes al vertice recibido 
+    // Funcion para obtener la lista de adyacentes al vertice recibido
     Arista *adyacentes(int vertice)
     {
         return vertices[vertice];
@@ -110,7 +105,7 @@ public:
         nuevaArista->tiempo = tiempoViaje;
         nuevaArista->sig = vertices[o];
         vertices[o] = nuevaArista;
-        
+
         // Si el grafo no es dirigido agregamos la arista inversa
         if (!dirigido)
         {
@@ -202,11 +197,7 @@ public:
                 a2 = a2->sig;
             }
 
-            delete[] a1;
-            delete[] a2;
-
             duplicarCamino(origen, vengoDe[destino]);
         }
     }
-    //
 };

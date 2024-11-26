@@ -1,7 +1,7 @@
 #include <cassert>
-#include <string>
+#include <cstring>
 #include <iostream>
-#include <limits>
+#include <climits>
 
 using namespace std;
 
@@ -96,6 +96,10 @@ bool noPuedoSuperar(int tamJardin, int filaActual, int columnaActual, int maxFlo
     if (floresPuestasActuales + celdasRestantes <= maxFloresPuestas)
     {
         return true;
+    }
+    else
+    {
+        return false;
     }
 }
 

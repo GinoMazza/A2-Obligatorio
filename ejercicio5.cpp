@@ -1,8 +1,6 @@
 #include <cassert>
-#include <string>
+#include <cstring>
 #include <iostream>
-#include <climits>
-#include <limits>
 #include "grafoMisiones.cpp"
 
 using namespace std;

@@ -1,9 +1,3 @@
-#include <iostream>
-#include <string>
-#include <cstring>
-#include <cassert>
-#include <limits>
-
 using namespace std;
 
 class CPEGrafo

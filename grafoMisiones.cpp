@@ -1,8 +1,3 @@
-#include <iostream>
-#include <string>
-#include <cstring>
-#include <cassert>
-#include <limits>
 #include "cpeGrafo.cpp"
 #include "grafoCiudades.cpp"
 

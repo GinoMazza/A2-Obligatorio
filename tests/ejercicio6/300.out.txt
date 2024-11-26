@@ -1,5 +1,0 @@
-BE11, la mejor ruta es buscar equipo, Desactivar la Entidad y punto de extraccion con un costo de 18
-La otra opcion tiene un costo de 21
-Paso 1: Kinshasa -> Hong_Kong -> Dresde -> Burdeos -> Buscar equipo
-Paso 2: Burdeos -> Dresde -> Riga -> Desactivar la Entidad
-Paso 3: Riga -> Doha -> Oviedo -> Ir a Punto de extraccion

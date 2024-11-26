@@ -1,8 +1,7 @@
 #include <cassert>
-#include <string>
+#include <cstring>
 #include <iostream>
-#include <limits>
-#include "ejercicio4/cpe.cpp"
+#include "cpe.cpp"
 
 using namespace std;
 

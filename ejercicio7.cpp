@@ -1,7 +1,6 @@
 #include <cassert>
-#include <string>
+#include <cstring>
 #include <iostream>
-#include <limits>
 #include <climits>
 
 using namespace std;
@@ -122,12 +121,7 @@ int main()
             cout << tiemposTotales[i] << " " << posicionesInicio[i] << " " << posicionesFinal[i] << endl;
         }
     }
-    cout << resultado;
-
-    delete[] duraciones;
-    delete[] posicionesInicio;
-    delete[] posicionesFinal;
-    delete[] tiemposTotales;
+    cout << resultado << endl;
 
     return 0;
 }
